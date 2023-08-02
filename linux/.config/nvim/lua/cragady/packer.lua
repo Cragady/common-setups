@@ -43,4 +43,20 @@ return require('packer').startup(function(use)
     }
 
     use("eandrju/cellular-automaton.nvim")
+    use('nvim-lua/plenary.nvim')
+
+    use {
+        'folke/trouble.nvim',
+        requires = {
+            { 'nvim-tree/nvim-web-devicons' },
+        }
+    }
+
+    use {
+        'folke/todo-comments.nvim',
+        as = 'todo-comments',
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+        }
+    }
 end)

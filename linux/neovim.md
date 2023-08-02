@@ -114,4 +114,15 @@ Prime's vid is using the red in [this link](https://github.com/VonHeikemen/lsp-z
 
 ## TODO Tree
 
+<!-- TODO: test -->
+
+Todos won't be highlighted in the MD file (at least not with my setup), but it will show up if you use the command `:TodoQuickFix`
+
 https://github.com/folke/todo-comments.nvim
+
+Install Requirements and download + install wanted font.
+
+https://www.nerdfonts.com/font-downloads - Hack Nerd Font
+
+May need to revisit the deps for this package
+
