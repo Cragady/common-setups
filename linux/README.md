@@ -30,3 +30,34 @@ My setup will likely need an overhaul at some point so I can leave all auto-gene
 
 One example for this would be creating an alias file and sourcing that in any bash/zsh config files.
 
+## Git Config
+
+Do something like this maybe I guess?
+
+.gitconfig
+
+```
+[user]
+	email = *****
+	name = Cragady
+[credential]
+	modalPrompt = false
+[filesystem "Oracle Corporation|11.0.9|/dev/sda2"]
+	timestampResolution = 6000 nanoseconds
+	minRacyThreshold = 7564 microseconds
+[diff]
+	tool = vimdiff3
+	guitool = gvimdiff3
+```
+
+Most of this should be already done for you, but the `[diff]` entry may need work. May also want to change editors too. I forget what the default is, but if it isn't vim or neovim, it's definitely worth changing.
+
+You probably don't need to edit the `.gitconfig` file directly:
+
+```sh
+git config --global diff.guitool gvimdiff3
+git config --global diff.tool vimdiff3
+```
+
+Not too sure why [filesystem] is included. I'll have to figure that out later.
+
