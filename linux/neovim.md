@@ -6,6 +6,8 @@ Repo: https://github.com/ThePrimeagen/init.lua
 
 Some of the key remappings don't work, and this is likely due to me diverging slightly from how ThePrimeagen sets his env up.
 
+Some other things may also be whack. I may or may not fix this later with a different setup/config.
+
 ## Installs
 
 If on Debian, or a Debian based distro you can use `sudo apt-get install neovim`, but the repo does not have latest stable. 
