@@ -20,6 +20,56 @@ chmod u+x nvim.appimage
 
 If you use the shell script, add an alias to whatever rc/profile file is necessary.
 
+### If CLI only - fontconfig & unzip
+
+```
+sudo apt-get install fontconfig -y
+sudo apt-get install unzip
+```
+
+Create a .fonts dir in your user dir and run the following to load new fonts:
+
+`fc-cache -f -v`
+
+If fonts come in a .zip file:
+
+`unzip Target.zip -d dest_dir`
+
+And then move all fonts to the .fonts dir and re-run the fc-cache command.
+
+### Maybe Missing Essential: FUSE - (AppImage)
+
+If you don't have fuse, you can't use the curl method. So use apt or install fuse. If you're not having issues, then ignore this section.
+
+https://docs.appimage.org/user-guide/troubleshooting/fuse.html#ref-ug-troubleshooting-fuse-fuse3
+
+`sudo apt-get install fuse libfuse2`
+
+After installing run the following commands:
+
+```sh
+sudo addgroup fuse
+sudo add user $USER fuse
+```
+
+### Maybe Missing Essentials: c, clangd, FUSE(AppImage)
+
+`sudo apt-get install build-essential`
+
+If you plan on having a clang server, you may need the following as well:
+
+`sudo apt-get install clangd --install-suggests`
+OR (Likely the correct solution below):
+
+```
+sudo apt-get install clangd-12
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+```
+
+This solution started working after a few starts of neovim. I thought I was going to have to look into it a bit more heavily.
+
+If not missing, skip this section.
+
 ### ripgrep
 
 This is required for the "<leader>ps" keybinding (grep files easily)
