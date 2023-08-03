@@ -20,6 +20,23 @@ Copy configs from this repo to your home dir, in a way that is similar to pathin
 OR
 `chsh -s /bin/zsh`
 
+(Or let it do it for you)
+
+If you want p10k fonts (and are cli-only), `wget` these into `~/Downloads`, and load the fonts:
+
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+Font handling mentioned in the neovim.md. After fonts are installed, it's probably better to let p10k handle setting the font config.
+
+I'll have to revisit fonts some-time due not setting the fonts up correctly w/wsl
+
+If you have a gui, just click on the files, and select `Install` on the popup. If you're on Ubuntu, and you click `install` on any italic versions of the fonts and it still says `install`, do not keep clicking it. It has already installed. May be a bug.
+
+If you keep clicking it, it will keep installing.
+
 ## Notes
 
 If the setup is slightly off, I may need to re-order some steps, or re-do some steps after certain commands are ran. I just kinda poked things until it worked, so that may need to happen again. I'll attempt to be disciplined about keeping this document updated in such a case.

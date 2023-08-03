@@ -22,7 +22,7 @@ If you use the shell script, add an alias to whatever rc/profile file is necessa
 
 ### If CLI only - fontconfig & unzip
 
-```
+```sh
 sudo apt-get install fontconfig -y
 sudo apt-get install unzip
 ```
@@ -175,6 +175,8 @@ https://github.com/folke/todo-comments.nvim
 Install Requirements and download + install wanted font.
 
 https://www.nerdfonts.com/font-downloads - Hack Nerd Font
+
+(cli) `wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip -P ~/Downloads`
 
 May need to revisit the deps for this package
 
