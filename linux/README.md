@@ -50,6 +50,20 @@ If you have a gui, just click on the files, and select `Install` on the popup. I
 
 If you keep clicking it, it will keep installing.
 
+### WSL Clipboard
+
+```sh
+# if ~/bin doesn't exist
+mkdir ~/bin
+curl -sLo /tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+chmod +x /tmp/win32yank.exe
+sudo mv /tmp/win32yank.exe ~/bin/
+sudo ln -s ~/bin/win32yank.exe /usr/local/bin/win32yank.exe
+```
+
+You can also skip the local user bin dir if you want and just move `win32yank.exe` directly to `/usr/local/bin/win32yank.exe`. Up to you.
+
 ## Notes
 
 If the setup is slightly off, I may need to re-order some steps, or re-do some steps after certain commands are ran. I just kinda poked things until it worked, so that may need to happen again. I'll attempt to be disciplined about keeping this document updated in such a case.

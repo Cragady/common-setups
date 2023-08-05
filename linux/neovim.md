@@ -20,6 +20,34 @@ chmod u+x nvim.appimage
 
 If you use the shell script, add an alias to whatever rc/profile file is necessary.
 
+### WSL Clipboard
+
+* https://stackoverflow.com/questions/44480829/how-to-copy-to-clipboard-in-vim-of-bash-on-windows/61864749#61864749
+* https://github.com/microsoft/WSL/issues/4440
+* https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+
+Refer to README.md in this dir for download.
+
+Somewhere in your neovim init files:
+
+`vim.opt.clipboard = "unnamedplus"`
+
+FOR VIM:
+
+```vim
+set clipboard=unnamedplus
+
+autocmd TextYankPost * call system('win32yank.exe -i --crlf', @")
+
+function! Paste(mode)
+    let @" = system('win32yank.exe -o --lf')
+    return a:mode
+endfunction
+
+map <expr> p Paste('p')
+map <expr> P Paste('P')
+```
+
 ### If CLI only - fontconfig & unzip
 
 ```sh
