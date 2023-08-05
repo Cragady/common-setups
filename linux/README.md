@@ -25,6 +25,8 @@ Install p10k, and any pre-reqs that are needed: https://github.com/romkatv/power
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
+You'll also have to set `ZSH_THEME="powerlevel10k/powerlevel10k"` within `.zshrc`, this setting should be close to the top. May not have to do this if you copied the .zshrc before this point.
+
 Copy configs from this repo to your home dir, in a way that is similar to pathing where items exist. Extra credit if you want to diff these files with the auto-generated files.
 
 (May not need .p10k.zsh - I didn't modify this much at all. Including just in case.)
