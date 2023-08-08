@@ -68,6 +68,10 @@ sudo ln -s ~/bin/win32yank.exe /usr/local/bin/win32yank.exe
 
 You can also skip the local user bin dir if you want and just move `win32yank.exe` directly to `/usr/local/bin/win32yank.exe`. Up to you.
 
+### Windows Terminal/WSL
+
+You'll likely want to remove the `<C-c>` and `<C-v>` keybindings for copy/paste respectively. You should have `<C-C>`, and `<C-V>` for these commands. If you don't, it would probably be convenient to add them.
+
 ## Notes
 
 If the setup is slightly off, I may need to re-order some steps, or re-do some steps after certain commands are ran. I just kinda poked things until it worked, so that may need to happen again. I'll attempt to be disciplined about keeping this document updated in such a case.

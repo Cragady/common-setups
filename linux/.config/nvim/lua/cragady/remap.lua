@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<M-z>", "<cmd>set wrap!<CR>")
 
 -- moves highlighted items
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -50,6 +51,8 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Out of what doesn't work, this seems like the coolest thing
 -- to not work
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- vvv Useful for debugging
+-- vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 -- sometimes works - This has more to do with LSP setups
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
