@@ -30,6 +30,8 @@ Other useful commands:
 * `<C-w>v` - splits a new buffer vertically (Not fugitive specific)
 * `<C-w><C-w>` - Moves focus to the next split buffer (Not Fugitive specific, there are other buffer movement commands that I need to become familiar with)
 
+Every now and then, I screw up the split buffers and have to drop out of nvim and start it again. Less than ideal, but I imagine through time this will not be an issue.
+
 I use `Git Lens` in vs-code which is a super easy way to see who committed what, and to diff different points in history without using git commands.
 
 This is what I consider a missing piece, however, I imagine I can either find a Neovim plugin that does this for me, or finagle around with Fugitive to get something similar. I may just resort to utilizing a plugin for this.
