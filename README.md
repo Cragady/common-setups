@@ -32,7 +32,7 @@ Other useful commands:
 
 Every now and then, I screw up the split buffers and have to drop out of nvim and start it again. Less than ideal, but I imagine through time this will not be an issue.
 
-I use `Git Lens` in vs-code which is a super easy way to see who committed what, and to diff different points in history without using git commands.
+I use `Git Lens` in vs-code which is a super easy way to see who committed what, and to diff different points in history without using git commands yourself.
 
 This is what I consider a missing piece, however, I imagine I can either find a Neovim plugin that does this for me, or finagle around with Fugitive to get something similar. I may just resort to utilizing a plugin for this.
 
