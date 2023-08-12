@@ -83,4 +83,5 @@ It's pretty simple to use, but I don't know how to configure it (probably not th
 ### M - Neovim
 
 * Emmet
+* Git Lens / Git Blame (Maybe)
 
