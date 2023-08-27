@@ -20,6 +20,26 @@ chmod u+x nvim.appimage
 
 If you use the shell script, add an alias to whatever rc/profile file is necessary.
 
+OR EVEN BETTER, follow the instructions to extract the appimage, and store that where you want.
+
+I have mine within a dir called `cust-bin`.
+
+```sh
+# The you shouldn't have to execute the below command if you've already curled it
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+# ./nvim.appimage
+
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+
+mv squashfs-root ~/cust-bin
+sudo ln -s /home/$USER/cust-bin/squashfs-root/AppRun /usr/bin/nvim
+nvim .
+```
+
+If you need to uninstall/update it, remove the link, remove the extraction, re-curl it, extract the appimage, and re-link to `/usr/bin/nvim`. A simple `ll` or `ls -la` against `/usr/bin` should tell you what's a link and if your `nvim` is a link. (Hint: It should be if you followed these steps. If you installed it via a package manager, use that to uninstall/update nvim as you see fit)
+
 ### WSL Clipboard
 
 * https://stackoverflow.com/questions/44480829/how-to-copy-to-clipboard-in-vim-of-bash-on-windows/61864749#61864749
