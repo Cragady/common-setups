@@ -77,7 +77,7 @@ After installing run the following commands:
 
 ```sh
 sudo addgroup fuse
-sudo add user $USER fuse
+sudo adduser $USER fuse
 ```
 
 ### Maybe Missing Essentials: c, clangd, FUSE(AppImage)
