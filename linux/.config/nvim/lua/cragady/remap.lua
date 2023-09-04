@@ -58,6 +58,7 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- See Editor Error - This is a diagnostic to show the error in its entirety
 -- To enter the window, enter the leader see command after one of the following three commands
+-- May take several goes
 vim.keymap.set("n", "<leader>see", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>")
 -- Next Editor Error
 vim.keymap.set("n", "<leader>nee", "<cmd>lua vim.diagnostic.goto_next()<CR>")
