@@ -56,7 +56,15 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- sometimes works - This has more to do with LSP setups
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
--- Not currently working - find out why
+-- See Editor Error - This is a diagnostic to show the error in its entirety
+-- To enter the window, enter the leader see command after one of the following three commands
+vim.keymap.set("n", "<leader>see", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>")
+-- Next Editor Error
+vim.keymap.set("n", "<leader>nee", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+-- Previous Editor Error
+vim.keymap.set("n", "<leader>pee", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+
+-- This may work, I just don't know the context
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
