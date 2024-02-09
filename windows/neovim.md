@@ -6,3 +6,7 @@ Instead of having the initial `init.lua` in `~/.config/nvim`, the actual Windows
 
 I may or may not include more here as I keep modifying the Windows install.
 
+Ripgrep:
+
+Under a shell as administrator: `choco install ripgrep`
+
