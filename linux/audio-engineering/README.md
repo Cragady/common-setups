@@ -36,6 +36,12 @@ wget -P ~/sources/drumgizmo https://drumgizmo.org/kits/DRSKit/DRSKit2_1.zip
 md5sum -c <<< "8c4d4b61ad9d354b3b845edd5da9c133 $HOME/sources/drumgizmo/DRSKit2_1.zip"
 ```
 
+```sh
+cd ~/sources/drumgizmo
+unzip DRSKit2_1.zip
+cd -
+```
+
 Usage: https://linuxaudio.github.io/libremusicproduction/html/tutorials/setting-and-using-drumgizmo-ardour
 
 ### ZynAddSubFx / zyn-fusion-build
