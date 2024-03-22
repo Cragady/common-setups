@@ -27,9 +27,16 @@ Sources: https://github.com/Ardour
 
 `sudo apt-get install drumgizmo`
 
+Link: https://drumgizmo.org/wiki/doku.php?id=getting_drumgizmo
+
 Other: https://www.drumgizmo.org/wiki/doku.php?id=kits:drskit
 
-Link: https://drumgizmo.org/wiki/doku.php?id=getting_drumgizmo
+```sh
+wget -P ~/sources/drumgizmo https://drumgizmo.org/kits/DRSKit/DRSKit2_1.zip
+md5sum -c <<< "8c4d4b61ad9d354b3b845edd5da9c133 $HOME/sources/drumgizmo/DRSKit2_1.zip"
+```
+
+Usage: https://linuxaudio.github.io/libremusicproduction/html/tutorials/setting-and-using-drumgizmo-ardour
 
 ### ZynAddSubFx / zyn-fusion-build
 
