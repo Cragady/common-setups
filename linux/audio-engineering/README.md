@@ -52,6 +52,47 @@ Follow the instructions for installation. One difference, for the make command, 
 
 `make PARALLEL=1 MODE=release -f Makefile.linux.mk all`
 
+### rubberband
+
+Source: https://github.com/breakfastquay/rubberband
+
+Deps: LADSPA
+
+```sh
+make -f otherbuilds/Makefile.linux
+# OR
+meson setup build && ninja -C build
+```
+
+For more build options/info, read the `COMPILING.md` file in the repo.
+
+### calf
+
+Source: https://github.com/calf-studio-gear/calf
+
+Site: https://calf-studio-gear.org/
+
+Deps:
+
+```sh
+sudo apt-get install libtool autoconf libexpat1-dev libglib2.0-dev libfluidsynth-dev jackd libjack-dev lv2core libglade2-dev lv2-dev
+```
+
+Install:
+
+```sh
+git clone https://github.com/calf-studio-gear/calf.git
+```
+
+Run autogen.sh inside the calf folder to configure the compiling process. If there are errors or missing features at the end check the output, usually there are some packages missing. Run make and make install afterwards. Please note that make install requires superuser rights. The following example is optimized for a dualcore processor. Please edit -j2 to fit your amount of CPU-cores or just don't add it at all.
+
+```sh
+cd calf
+./autogen.sh
+make -j2
+make install
+```
+
 ## Future Installations
 
 ### sfizz-ui / sfizz
