@@ -54,14 +54,26 @@ Follow the instructions for installation. One difference, for the make command, 
 
 ### rubberband
 
+Note: consider what you want rubberband for.
+
+`sudo apt-get install rubberband-ladspa`
+
+Just install it, the below is legacy's sake.
+
 Source: https://github.com/breakfastquay/rubberband
 
 Deps: LADSPA
+
+`sudo apt-get install ladspa-sdk`
+`sudo apt-get install lv2-dev`
+`sudo apt-get install libsndfile1-dev`
 
 ```sh
 make -f otherbuilds/Makefile.linux
 # OR
 meson setup build && ninja -C build
+# OR
+meson setup build -Dlv2=enabled  && ninja -C build
 ```
 
 For more build options/info, read the `COMPILING.md` file in the repo.
@@ -75,7 +87,9 @@ Site: https://calf-studio-gear.org/
 Deps:
 
 ```sh
-sudo apt-get install libtool autoconf libexpat1-dev libglib2.0-dev libfluidsynth-dev jackd libjack-dev lv2core libglade2-dev lv2-dev
+# sudo apt-get install libtool autoconf libexpat1-dev libglib2.0-dev libfluidsynth-dev jackd libjack-dev lv2core libglade2-dev lv2-dev
+# The above command's lv2core pulls in lv2-dev, may not be neccessary to use lv2core since it's not in the repositories
+sudo apt-get install libtool autoconf libexpat1-dev libglib2.0-dev libfluidsynth-dev jackd libjack-dev libglade2-dev lv2-dev
 ```
 
 Install:
@@ -90,7 +104,7 @@ Run autogen.sh inside the calf folder to configure the compiling process. If the
 cd calf
 ./autogen.sh
 make -j2
-make install
+sudo make install
 ```
 
 ## Future Installations
