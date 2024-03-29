@@ -59,5 +59,7 @@ Follow the instructions for the install. May need to execute the following comma
 
 Then `./build.sh`, and wait for install. If the build tells you that you don't have the correct dotnet version installed, then follow its instructions and modify the `./global.json` config file with the correct version installed. The build should go through, and the build may end on an error. It's likely if you see the messaging `MSBuild server shut down successfully.` before the error, it installed itself fine enough.
 
+We'll need to sorta trick Unity into generating files for the LSP to act on, so just set `Preferences > External Tools > External Script Editor` to Visual Studio Code (any version). Regenerate project files if needed. I believe if you create/modify a file, then Unity will do this after giving Unity focus again.
+
 https://neovim.discourse.group/t/how-to-setup-omnisharp-on-linux-for-unity-c-with-mono-via-nvim-lspconfig/2928
 https://chrislabarge.com/posts/neovim-unity-engine/
