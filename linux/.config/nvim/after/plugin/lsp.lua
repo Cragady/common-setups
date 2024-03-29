@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero').preset({})
+local uname = vim.loop.sysname
 
 require("mason-lspconfig").setup {
     ensure_installed = {
@@ -48,6 +49,20 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+-- (Optional) Omnisharp-Roslyn/C#/Unity
+if uname == "Linux" then
+  local pid = vim.fn.getpid()
+  local omnisharp_bin = "/opt/omnisharp-roslyn/run"
+  require('lspconfig').omnisharp.setup{
+    -- on_attach = lsp.on_attach, -- Likely not needed
+    flags = {
+      debounce_text_changes = 150,
+    },
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+  }
+end
+
 
 lsp.setup()
 

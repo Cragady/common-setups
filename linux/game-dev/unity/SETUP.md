@@ -35,7 +35,7 @@ https://www.plasticscm.com/plastic-for-linux
 
 ## Other - LSP & Other setup
 
-(In Progress)
+Use the official `mono` repo
 
 https://www.mono-project.com/download/stable/#download-lin-ubuntu
 
@@ -47,5 +47,17 @@ https://www.mono-project.com/download/stable/#download-lin-ubuntu
 * `sudo apt-get install mono-devel mono-complete`
 
 https://spaceandtim.es/code/nvim_unity_setup/
+
+omnisharp-roslyn: https://github.com/OmniSharp/omnisharp-roslyn
+
+Clone the repo
+
+Follow the instructions for the install. May need to execute the following command(s):
+
+* `sudo apt-get install dotnet-sdk-8.0`
+* `sudo apt-get install dotnet-runtime-8.0`
+
+Then `./build.sh`, and wait for install. If the build tells you that you don't have the correct dotnet version installed, then follow its instructions and modify the `./global.json` config file with the correct version installed. The build should go through, and the build may end on an error. It's likely if you see the messaging `MSBuild server shut down successfully.` before the error, it installed itself fine enough.
+
 https://neovim.discourse.group/t/how-to-setup-omnisharp-on-linux-for-unity-c-with-mono-via-nvim-lspconfig/2928
 https://chrislabarge.com/posts/neovim-unity-engine/
