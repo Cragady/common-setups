@@ -78,6 +78,10 @@ meson setup build -Dlv2=enabled  && ninja -C build
 
 For more build options/info, read the `COMPILING.md` file in the repo.
 
+### swh-lv2
+
+`sudo apt-get install swh-lv2`
+
 ### calf
 
 Source: https://github.com/calf-studio-gear/calf
