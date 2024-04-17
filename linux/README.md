@@ -4,6 +4,8 @@ DO NOT REPLACE THE ENTIRE `.config` DIR UNLESS YOU'RE TRACKING _ALL_ OF YOUR CUR
 
 There are probably going to be some missing configs due to certain installs I've forgotton about. If you don't want zsh, and want to use bash, there's something odd going on with the bash completion. I'm unsure if it came with a good completion, or if I customized it. I don't want to chase that down right now, so if you want to use bash, and you're not getting the completion experience you're wanting, then config it, or set something else up. I may do this later? Or I may not. I may not have done anything with this.
 
+Some of the dot files in this directory should just be copied over to the user dir for a quick-setup after an install of what's needed for the dot file to do something (Can't configure what's not installed).
+
 ## General Setups
 
 Install nvm (Node Version Manager). https://github.com/nvm-sh/nvm
