@@ -54,7 +54,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vvv Useful for debugging
 -- vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 -- sometimes works - This has more to do with LSP setups
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set({"n", "v"}, "<leader>f", vim.lsp.buf.format)
 
 -- See Editor Error - This is a diagnostic to show the error in its entirety
 -- To enter the window, enter the leader see command after one of the following three commands
