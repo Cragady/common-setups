@@ -131,3 +131,8 @@ export NVM_DIR="/home/cragady/.nvm"
 
 export VCPKG_ROOT=~/Toolkits/vcpkg
 export PATH=$VCPKG_ROOT:$PATH
+
+# opam configuration
+[[ ! -r /home/cragady/.opam/opam-init/init.zsh ]] || source /home/cragady/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+[ -f "/home/cragady/.ghcup/env" ] && . "/home/cragady/.ghcup/env" # ghcup-env

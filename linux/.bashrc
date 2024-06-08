@@ -138,3 +138,4 @@ alias DreamCragLoc="****"
 alias jafl_ubu='ssh -i "/home/cragady/.ssh/other_keys/jafl_ubu.pem" *****'
 alias ClearopsVPN='sudo openvpn --config ~/.config/OpenVPN/ClearopsServer/files/client1.ovpn'
 alias RoutunVPN='sudo openvpn --config ~/.config/OpenVPN/routun-clrps/files/cragady-rtn.ovpn'
+. "$HOME/.cargo/env"
