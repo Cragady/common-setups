@@ -196,6 +196,23 @@ https://github.com/rose-pine/neovim
 
 https://github.com/nvim-treesitter/nvim-treesitter
 
+May need to install the `tree-sitter-cli`.
+
+https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
+
+cargo (rust):
+
+```sh
+cargo install tree-sitter-cli
+```
+
+npm (node):
+
+```sh
+# Missing global flag? Taken from docs.
+npm install tree-sitter-cli
+```
+
 ## Harpoon
 
 https://github.com/ThePrimeagen/harpoon
