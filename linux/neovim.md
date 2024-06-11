@@ -8,6 +8,10 @@ Some of the key remappings don't work, and this is likely due to me diverging sl
 
 Some other things may also be whack. I may or may not fix this later with a different setup/config.
 
+## Very Important Tree-Sitter thing
+
+Run `:TSUpdate` every now and then if tree sitter is giving you issues.
+
 ## Installs
 
 If on Debian, or a Debian based distro you can use `sudo apt-get install neovim`, but the repo does not have latest stable. 

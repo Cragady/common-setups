@@ -2,6 +2,13 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<M-z>", "<cmd>set wrap!<CR>")
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
+vim.keymap.set("t", "<A-h>", [[<C-\><C-n><C-w>h]])
+vim.keymap.set("t", "<A-j>", [[<C-\><C-n><C-w>j]])
+vim.keymap.set("t", "<A-k>", [[<C-\><C-n><C-w>k]])
+vim.keymap.set("t", "<A-l>", [[<C-\><C-n><C-w>l]])
+
 -- moves highlighted items
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

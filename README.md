@@ -12,6 +12,10 @@ So, what I write here for a vs-code setup likely won't be complete, but somethin
 
 Maybe I'll just download the Windows version of Neovim and use the vs-code plugin for Neovim and do a basic config for that.
 
+## Very Important Tree-Sitter thing
+
+Run `:TSUpdate` every now and then if tree sitter is giving you issues.
+
 ## Neovim + Fugitive
 
 To run Fugitive within Neovim, use this command: `:Git`
@@ -82,6 +86,7 @@ It's pretty simple to use, but I don't know how to configure it (probably not th
 
 ### M - Neovim
 
-* Emmet
+* Emmet (Not missing)
 * Git Lens / Git Blame (Maybe)
+  * Not really missing, just use `:Git blame`, or `:Git`, or `:Git <sub command>`
 
