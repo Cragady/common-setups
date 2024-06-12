@@ -111,7 +111,20 @@ Use libs & executables how they should be used.
 * Emulating Full System: `apt-get install qemu-system`
 * Emulating Linux binaries: `apt-get install qemu-user-static`
 
-## Wine
+## Virtualization
+
+### Virtual Machine Manager
+
+Interacts w/qemu
+
+`sudo apt-get install virt-manager`
+
+### Wine
+
+Windows Emulation
 
 `sudo apt-get install wine`
     
+### Virtual Box (Oracle (ew, but Virtual Box is fun))
+
+Just follow the current steps for the wanted platform at: https://www.virtualbox.org/wiki/Linux_Downloads
