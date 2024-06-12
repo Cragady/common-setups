@@ -34,6 +34,7 @@ sudo nvme smart-log <Node>
 ## Usage:
 sensors
 
+```sh
 # As an alternative to hddtemp, use the following to load the module
 sudo modprobe -v drivetemp
 # then execute sensors
@@ -82,7 +83,35 @@ https://en.wikipedia.org/wiki/Comparison_of_hex_editors
 * https://github.com/scanmem/scanmem
   * `sudo apt-get install scanmem`
 
+## CPU Emulation+
+
+GCC may not cut it here, May want clang:
+
+`sudo apt-get install clang lld`
+
+### Unicorn
+
+[Unicorn](https://github.com/unicorn-engine/unicorn)
+Compile. Reqs:
+  * `sudo apt install cmake pkg-config`
+
+```sh
+git clone git@github.com:unicorn-engine/unicorn.git
+cd unicorn
+mkdir build; cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make
+```
+
+Use libs & executables how they should be used.
+
+### qemu
+[qemu](https://www.qemu.org/download/#linux)
+
+* Emulating Full System: `apt-get install qemu-system`
+* Emulating Linux binaries: `apt-get install qemu-user-static`
+
 ## Wine
 
 `sudo apt-get install wine`
-
+    
