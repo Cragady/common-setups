@@ -12,6 +12,10 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- THEMES
+    -- https://github.com/topics/neovim-colorscheme
+    -- https://dotfyle.com/neovim/colorscheme/trending
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
@@ -19,6 +23,26 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme rose-pine')
         end
     })
+
+    use ({
+      'folke/tokyonight.nvim',
+      as = 'tokyonight',
+      config = function()
+        vim.cmd('colorscheme tokyonight')
+      end
+    })
+    use({
+      'Mofiqul/vscode.nvim',
+      config = function()
+        vim.cmd('colorscheme vscode')
+      end
+
+    })
+    use('navarasu/onedark.nvim')
+
+    -- play around with later
+    use('rktjmp/lush.nvim')
+    -- /THEMES
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
@@ -68,5 +92,10 @@ return require('packer').startup(function(use)
     })
 
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+    -- Think on this one
+    -- use('hiphish/rainbow-delimiters.nvim')
+
+
 
 end)
