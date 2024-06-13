@@ -121,6 +121,7 @@ alias old-history="cat ~/.zsh_backup_history"
 # alias old-arch="arch -x86_64 zsh"
 # alias new-arch="arch -arm64 zsh"
 alias nvim="~/nvim.appimage"
+alias minisign="~/Toolkits/minisign/minisign"
 
 export NVM_DIR="/home/cragady/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -132,6 +133,7 @@ export NVM_DIR="/home/cragady/.nvm"
 export VCPKG_ROOT=~/Toolkits/vcpkg
 export PATH=$VCPKG_ROOT:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/zig/0.14.0
 
 # opam configuration
 [[ ! -r /home/cragady/.opam/opam-init/init.zsh ]] || source /home/cragady/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
