@@ -26,3 +26,10 @@ The above includes Markdown to pdf/html functionality. As an example:
 pandoc MANUAL.txt -o example13.pdf
 pandoc MANUAL.md -o example13.pdf
 ```
+
+Likely won't need all that this provides, and as far as writing documents go, `R` would probably cover the use-cases that `pandoc` provides, and could probably do some really cool things easily.
+
+## Other LaTeX tools:
+
+* [overleaf](https://github.com/overleaf/overleaf) - a latex editor
+  * [toolkit for running locally](https://github.com/overleaf/toolkit/)
