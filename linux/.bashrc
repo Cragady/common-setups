@@ -121,7 +121,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# UsrAdd Added in /etc/bash.bashrc 
+# UsrAdd Added in /etc/bash.bashrc
 
 # export PATH="$PATH:`yarn global bin`"
 
@@ -133,9 +133,11 @@ export NVM_DIR="$HOME/.nvm"
 # alias gpuom='git push -u origin master'
 
 # End UsrAdd
-
-alias DreamCragLoc="****"
-alias jafl_ubu='ssh -i "/home/cragady/.ssh/other_keys/jafl_ubu.pem" *****'
+source ~/.config/z-my-envs/.env-ips.env
+alias DreamCragLoc="$Dream_Crag_Loc_IP" # Was DO?
+alias jafl_ubu="echo \"connect with: ssh -i '/home/cragady/.ssh/other_keys/jafl_ubu.pem' $jafl_ubu_IP\"" # Was ec2?
 alias ClearopsVPN='sudo openvpn --config ~/.config/OpenVPN/ClearopsServer/files/client1.ovpn'
 alias RoutunVPN='sudo openvpn --config ~/.config/OpenVPN/routun-clrps/files/cragady-rtn.ovpn'
+source ~/.config/z-my-envs/.reset-env.env
+
 . "$HOME/.cargo/env"
