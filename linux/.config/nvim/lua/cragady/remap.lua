@@ -37,9 +37,11 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland -- imo this is the greatest
--- Yanks the highlighted text in normal or visual to the system clipboard
+-- Yanks the highlighted text when in visual mode to the system clipboard
+-- When executed in normal mode, it waits for a vim motion to know what to yank
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
--- same as above, but for entire line in normal mode
+-- same as above, but for entire line in normal mode, with no waiting for
+-- motions in normal mode
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- deletes to void in normal or visual
@@ -47,32 +49,38 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled - ThePrimeagen (lol)
 -- Useful for exiting input mode while retaining your changes
--- I don't have this issue because I didn't pick this up from 
+-- I don't have this issue because I didn't pick this up from
 -- from IntelliJ
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>"), don't need
 
 -- Capital "Q" is the "worst place in the universe" lmao
 -- Capital "Q" replays last recorded macro. That's terrible hahaha
-vim.keymap.set("n", "Q", "<nop>")
+-- More info: `:h Q_re`, `:h x` -> `/Q`
+---- :nnoremap Q gq
+vim.keymap.set("n", "QQ", "Q")
+vim.keymap.set("n", "Q", "gQ")
+-- vim.keymap.set("n", "Q", "<nop>")
 -- tmux installed, still not working - find out why
 -- Out of what doesn't work, this seems like the coolest thing
 -- to not work
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vvv Useful for debugging
 -- vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
--- sometimes works - This has more to do with LSP setups
+-- Always works, just needs a propper LSP, Formatter, or Linter with the correct
+-- config to work.
 vim.keymap.set({"n", "v"}, "<leader>f", vim.lsp.buf.format)
 
 -- See Editor Error - This is a diagnostic to show the error in its entirety
 -- To enter the window, enter the leader see command after one of the following three commands
--- May take several goes
+-- May take several goes -- AKA `<leader>vd`
 vim.keymap.set("n", "<leader>see", "<cmd>lua vim.diagnostic.open_float(0, {scope = 'line'})<CR>")
--- Next Editor Error
+-- Next Editor Error -- AKA ]d
 vim.keymap.set("n", "<leader>nee", "<cmd>lua vim.diagnostic.goto_next()<CR>")
--- Previous Editor Error
+-- Previous Editor Error -- AKA [d
 vim.keymap.set("n", "<leader>pee", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 
 -- This may work, I just don't know the context
+-- for help: `:h <command>` e.g.: `:h cnext`, `:h lnext`, etc.
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
@@ -81,20 +89,28 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- global search and replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- chmod +x for current file
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- Just use the CLI for this
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- ?? Unknown
--- Pretty sure this opens the file, or empty buffer, in the string of the third arg
--- I won't have this, if I have a need/want for it, I'll figure out what's going on and
--- create a dir structure + change the arg to replace 'theprimeagen' with 'cragady'
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+-- Edits Packer file
+vim.keymap.set("n", "<leader>vecp", "<cmd>e ~/.config/nvim/lua/cragady/packer.lua<CR>");
+-- Can also peek remaps with `:map`
+vim.keymap.set("n", "<leader>vecr", "<cmd>e ~/.config/nvim/lua/cragady/remap.lua<CR>");
 
 -- fun things
 vim.keymap.set("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>");
 
--- sources current file (two spaces)
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- sources current file (two spaces), I don't like this remap, just use `:so`
+-- vim.keymap.set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
+
+
+-- Golang specific binding
+vim.keymap.set(
+    "n",
+    "<leader>ee",
+    "oif err != nil {<CR>}<Esc>Oreturn err"
+)
 
