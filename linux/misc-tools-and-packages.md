@@ -128,3 +128,24 @@ Windows Emulation
 ### Virtual Box (Oracle (ew, but Virtual Box is fun))
 
 Just follow the current steps for the wanted platform at: https://www.virtualbox.org/wiki/Linux_Downloads
+
+## FZF, CLI Fuzzy Finder
+
+[GitHub](https://github.com/junegunn/fzf)
+
+`sudo apt-get install fzf`
+
+## cheat.sh
+
+[GitHub(https://github.com/chubin/cheat.sh)
+[Site](https://cht.sh)
+[Site](https://cheat.sh)
+
+Can Curl against, or host locally.
+
+## stow
+
+Local package manager
+
+`sudo apt-get install stow`
+
