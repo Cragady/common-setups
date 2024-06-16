@@ -134,6 +134,7 @@ export VCPKG_ROOT=~/Toolkits/vcpkg
 export PATH=$VCPKG_ROOT:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/zig/0.14.0
+export PATH=$PATH:~/.local/scripts
 
 # opam configuration
 [[ ! -r /home/cragady/.opam/opam-init/init.zsh ]] || source /home/cragady/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
