@@ -7,6 +7,8 @@
 
 ### Download Pre-Req (minisign)
 
+* `mkdir -p ~/Toolkits/minisign`
+* `cd ~/Toolkits/minisign`
 * `wget https://github.com/jedisct1/minisign/releases/download/0.11/minisign-0.11-linux.tar.gz`
 * `tar -xvzf minisign-0.11-linux.tar.gz`
 * `cp minisign-linux/x86_64/minisign ./`
