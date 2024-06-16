@@ -1,5 +1,16 @@
 # Overview
 
+Before everything: type `/TSUpdate<CR>`
+
+This repo assumes a setup on debian-like systems. This setup will likely be applicable to other distros, but if not, there's probably alternatives to the solutions in place.
+
+The root directory will give a setup for linux, more specifically the `Ubutnu` "distro" that uses linux as its kernel. There may be a couple of extra directories in this repo for other OS's/distros e.g. `windows`, `mac`, etc. Everything under this directory can be assumed to be applicable to `Ubuntu`, or `Debian` (mostly Ubuntu). If it doesn't look like it belongs to another OS, it likely doesn't. And even if it looks like it could belong to another OS, context will give way to clarity. If that doesn't, as long as it works... well, it works.
+
+
+## Main Notes About This Readme
+
+This is not meant to cover all cases and problems you, (me, I, myself), will come across. This is meant to provide a generalized instruction set that you can follow that will get you anywhere between 90-100% of the way there. Hopefully things won't change in a way that will cause lots of issues. You've got this, you can figure out any whackyness that you can come across. If you can do that, I can provide some hopefully somewhat clear instructions.
+
 Will be adding items here where necessary. If I'm feeling particularly ambitious, I'll treat this readme like the index for the doucmentation.
 
 This will be a semi-complete instruction set wherever I write items down. When I refer to "you", I'm likely just talking to myself, so don't take offense if I seem a bit abrasive at times.
