@@ -140,4 +140,7 @@ alias ClearopsVPN='sudo openvpn --config ~/.config/OpenVPN/ClearopsServer/files/
 alias RoutunVPN='sudo openvpn --config ~/.config/OpenVPN/routun-clrps/files/cragady-rtn.ovpn'
 source ~/.config/z-my-envs/.reset-env.env
 
+# Shopify Hydrogen alias to local projects
+alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
+
 . "$HOME/.cargo/env"
