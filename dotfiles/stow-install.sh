@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-STOW_FOLDERS="bin,conky,editorconfig,shells,tmux,vim"
+STOW_FOLDERS="bin,nvim,conky,editorconfig,shells,tmux,vim"
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
