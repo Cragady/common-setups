@@ -60,9 +60,8 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("n", "QQ", "Q")
 vim.keymap.set("n", "Q", "gQ")
 -- vim.keymap.set("n", "Q", "<nop>")
--- tmux installed, still not working - find out why
--- Out of what doesn't work, this seems like the coolest thing
--- to not work
+
+-- This now works, but neovim needs to be in an active tmux session.
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vvv Useful for debugging
 -- vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")

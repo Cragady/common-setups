@@ -1,4 +1,16 @@
-#!/usr/bin/env bash
+#!/usr/bin/zsh
+# WARNING: As the script stands now, if a tmux server is runing, and you are in
+# a neovim instance outside of tmux, it will just create new windows on the
+# latest session that was accessed. Error given if command is manually entered:
+# `inappropriate ioctl for device`, which sort of makes sense, but I don't
+# know enough about how neovim prints to the console with their magic to
+# really know.
+#
+# NOTE: This script was changed from source to be able to be executed directly
+# from the CLI without a tmux server active. This won't work from inside
+# a neovim instance outside of a tmux session.
+
+echo
 
 if [[ $# -eq 1 ]]; then
     selected=$1
@@ -11,15 +23,20 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+tmux_running=$(ps -e -o pid,command | grep 'tmux' | egrep -v '(grep|.*tmux-sessionizer)')
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s $selected_name -c $selected
+    tmux attach -t $selected_name -c $selected
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
+fi
+
+if [[ -z $TMUX ]]; then
+  tmux attach -t $selected_name -c $selected
 fi
 
 tmux switch-client -t $selected_name
