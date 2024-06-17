@@ -1,10 +1,12 @@
 # LaTex
 
-`sudo apt-get install texlive`
+* `sudo apt-get install pandoc`
+* `sudo apt-get install texlive`
 
 Or for full:
 
-`sudo apt-get install texlive-full`
+* `sudo apt-get install pandoc`
+* `sudo apt-get install texlive-full`
 
 https://askubuntu.com/questions/956006/pregenerating-context-markiv-format-this-may-take-some-time-takes-forever
 

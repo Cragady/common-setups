@@ -135,6 +135,7 @@ cat(txt[19])
 `sudo apt-get install libmagick++-dev`
 
 ```R
+install.packages("magick")
 library(magick)
 ```
 
