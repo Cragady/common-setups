@@ -12,3 +12,6 @@ For some reasons, I have the following installed manually:
 
 Just install a higher version of python if you don't want to use the system's default version. There may be a python version manager like node's `nvm`, so that may be worth looking into. 
 
+## Misc Items
+
+`sudo apt-get install python-tk python3-tk`
