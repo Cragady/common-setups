@@ -10,19 +10,41 @@
 # from the CLI without a tmux server active. This won't work from inside
 # a neovim instance outside of a tmux session.
 
-echo
-
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev2/Cascade ~/dev2 ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    search_dir="$HOME/dev2/Cascade $HOME/dev2 $HOME/"
+    find_args_str="-mindepth 1 -maxdepth 1 -type d"
+    selected=$(pwd)
+
+    while [[ $search_dir != "./" ]] && [[ -n $search_dir ]]; do
+      found_dirs=$(echo $search_dir $find_args_str | xargs find)
+      cur_prev_and_dirs="./\n../\n$found_dirs"
+      search_dir=$(echo $cur_prev_and_dirs | fzf)
+
+      if [[ $search_dir == "../" ]]; then
+        search_dir=$(echo $selected | sed -E "s/\/([^/])+$//g")
+
+        if [[ -z $search_dir ]]; then
+          search_dir="/"
+        fi
+      fi
+      if [[ $search_dir != "./" ]]; then
+        selected=$search_dir
+      fi
+    done
 fi
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+parsed_name=$selected
+
+if [[ $selected == "./" ]]; then
+  parsed_name=$(pwd)
+fi
+selected_name=$(basename "$parsed_name" | tr . _)
 tmux_running=$(ps -e -o pid,command | grep 'tmux' | egrep -v '(grep|.*tmux-sessionizer)')
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
