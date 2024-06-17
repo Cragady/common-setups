@@ -121,6 +121,7 @@ alias old-history="cat ~/.zsh_backup_history"
 # alias old-arch="arch -x86_64 zsh"
 # alias new-arch="arch -arm64 zsh"
 alias nvim="~/nvim.appimage"
+alias emacs='emacs -nw'
 alias minisign="~/Toolkits/minisign/minisign"
 
 export NVM_DIR="/home/cragady/.nvm"

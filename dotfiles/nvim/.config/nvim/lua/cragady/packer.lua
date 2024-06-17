@@ -127,6 +127,8 @@ return require('packer').startup(function(use)
     -- use('hiphish/rainbow-delimiters.nvim')
 
     use('airblade/vim-gitgutter')
+    -- Alternative to above (vim-gitgutter)
+    -- use('lewis6991/gitsigns.nvim')
 
 
 end)

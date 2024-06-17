@@ -149,3 +149,12 @@ Local package manager
 
 `sudo apt-get install stow`
 
+## fd-find (fd)
+
+[GitHub](https://github.com/sharkdp/fd)
+
+Alternative to find. Lighter and faster, but doesn't support as much functionality.
+
+Binary is called `fdfind` instead of `fd` on other systems. `fd` is already reserved for another package.
+
+`sudo apt-get install fd-find`
