@@ -20,6 +20,16 @@ The original installation was not pointed to a name that looked like a ubuntu na
 
 The site describes how to get the latest version of R, so similar steps may have been followed in the past.
 
+## renv
+
+[GitHub](https://github.com/rstudio/renv/)
+
+Package manager for R
+
+```R
+install.packages("renv")
+```
+
 ## RMarkdown
 
 [GitHub](https://github.com/rstudio/rmarkdown)
@@ -139,15 +149,77 @@ install.packages("magick")
 library(magick)
 ```
 
+## Excel & Office Calc Related Items
+
+### Tidyverse
+
+
+[tidyverse](https://github.com/tidyverse/tidyverse)
+```R
+install.packages("tidyverse")
+library(tidyverse)
+```
+[readxl](https://github.com/tidyverse/readxl/)
+```R
+# install.packages("tidyverse") # can also install individually: `install.packages("readxl")`
+library(readxl)
+```
+
+### writexl
+
+[GitHub](https://github.com/ropensci/writexl)
+
+```R
+install.packages("writexl")
+library(writexl)
+# library(readxl) # Tidyverse??
+```
+
+### openxlsx
+
+[GitHub](https://github.com/ycphs/openxlsx)
+
+```R
+install.packages("openxlsx", dependencies = TRUE)
+```
+
+### BERT
+
+[GitHub](https://github.com/sdllc/Basic-Excel-R-Toolkit)
+
+Windows Only Package?
+
+```R
+# Windows Only Package?
+```
+
+### tidyxl
+
+[GitHub](https://github.com/nacnudus/tidyxl)
+
 ## Other Cool Things
 
 ### Reticulate
 
 [Package](https://cran.r-project.org/web/packages/reticulate/index.html)
 
+```R
+install.packages("reticulate")
+library(reticulate)
+
+# Brief Example Usage:
+
+use_python("/usr/local/bin/python")
+use_virtualenv("myenv")
+```
+
 ### Rcpp
 
 [Package](https://cran.r-project.org/web/packages/Rcpp/index.html)
+
+```R
+install.packages("Rcpp")
+```
 
 ### DB Interfaces
 
