@@ -30,6 +30,12 @@ Package manager for R
 install.packages("renv")
 ```
 
+## conda
+
+[GitHub](https://github.com/conda/conda)
+
+Another package manager that can be used for R, it is cross-platform and language agnostic.
+
 ## RMarkdown
 
 [GitHub](https://github.com/rstudio/rmarkdown)
@@ -229,3 +235,7 @@ Aside from R's built-in:
 * `RMySQL`
 * `RSQLite`
 * `RODBC`
+
+### Misc
+
+* `fst`
