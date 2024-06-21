@@ -17,6 +17,12 @@ Run `:TSUpdate` every now and then if tree sitter is giving you issues.
 If on Debian, or a Debian based distro you can use `sudo apt-get install neovim`, but the repo does not have latest stable. 
 
 ```sh
+# Useful for yanking to system clipboard
+sudo apt-get install xsel
+# sudo apt-get install yank # ??
+```
+
+```sh
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage
@@ -113,7 +119,7 @@ If you plan on having a clang server, you may need the following as well:
 `sudo apt-get install clangd --install-suggests`
 OR (Likely the correct solution below):
 
-```
+```sh
 sudo apt-get install clangd-12
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
 ```
