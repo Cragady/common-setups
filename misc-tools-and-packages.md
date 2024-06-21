@@ -158,3 +158,14 @@ Alternative to find. Lighter and faster, but doesn't support as much functionali
 Binary is called `fdfind` instead of `fd` on other systems. `fd` is already reserved for another package.
 
 `sudo apt-get install fd-find`
+
+## xfce4-terminal
+
+`sudo apt-get install xfce4-terminal`
+
+## tilix
+
+Terminal emulator w/tiling.
+
+`sudo apt-get install tilix`
+
