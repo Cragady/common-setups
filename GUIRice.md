@@ -8,3 +8,9 @@ This needs the `universe` repos.
 
 TODO: add gnome-tweak-tools configs somewhere in this repo.
 
+## On Debian
+
+`sudo apt-get install gnome-shell-extension-autohidetopbar`
+
+Requires `Gnome Extensions` to interface
+
