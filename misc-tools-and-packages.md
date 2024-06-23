@@ -169,3 +169,11 @@ Terminal emulator w/tiling.
 
 `sudo apt-get install tilix`
 
+## gnome-multi-writer
+
+Bootable USBs (Debian)
+
+Can also use `gnome-disk-utility`
+
+`sudo apt-get install gnome-multi-writer`
+
