@@ -177,3 +177,9 @@ Can also use `gnome-disk-utility`
 
 `sudo apt-get install gnome-multi-writer`
 
+## neofetch
+
+`sudo apt-get install neofetch`
+
+Shows some linux, distro, & computer specs.
+
