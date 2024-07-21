@@ -52,6 +52,10 @@ Follow the instructions for installation. One difference, for the make command, 
 
 `make PARALLEL=1 MODE=release -f Makefile.linux.mk all`
 
+Or if you need a specific commit:
+
+`make PARALLEL=1 ZYNADDSUBFX_COMMIT=530bb88a74000f9fbd5760be6a86fdeab2a79f85 MODE=release -f Makefile.linux.mk all`
+
 ### rubberband
 
 Note: consider what you want rubberband for.
