@@ -115,6 +115,34 @@ make -j2
 sudo make install
 ```
 
+### kx.studio
+
+[Check the site](https://kx.studio/Repositories) to see if instructions are the same.
+
+```sh
+# Update software sources
+sudo apt-get update
+
+# Install required dependencies if needed
+sudo apt-get install apt-transport-https gpgv wget
+
+# Download package file
+cd ~/Downloads
+wget https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_11.1.0_all.deb
+
+# Install it
+sudo dpkg -i kxstudio-repos_11.1.0_all.deb
+```
+
+* `sudo apt-get install ams-lv2`
+
+### Misc
+
+* `sudo apt-get install eq10q`
+* `sudo apt-get install lsp-plugins-lv2`
+* `sudo apt-get install alsa-tools`
+* `sudo apt-get install dpf-plugins dpf-plugins-lv2 `
+
 ## Future Installations
 
 ### sfizz-ui / sfizz
