@@ -136,12 +136,23 @@ sudo dpkg -i kxstudio-repos_11.1.0_all.deb
 
 * `sudo apt-get install ams-lv2`
 
+### Wolf Shaper
+
+https://github.com/wolf-plugins/wolf-shaper
+
+```sh
+sudo apt-add-repository -y ppa:pdesaulniers/wolf
+sudo apt-get update
+sudo apt-get install wolf-shaper
+```
+
 ### Misc
 
 * `sudo apt-get install eq10q`
 * `sudo apt-get install lsp-plugins-lv2`
 * `sudo apt-get install alsa-tools`
 * `sudo apt-get install dpf-plugins dpf-plugins-lv2 `
+* `sudo apt-get install guitarix`
 
 ## Future Installations
 
@@ -171,4 +182,8 @@ https://github.com/mtytel/vital
 ### odin2
 
 https://github.com/TheWaveWarden/odin2
+
+### Baudline
+
+https://www.baudline.com/download.html
 
