@@ -153,6 +153,8 @@ sudo apt-get install wolf-shaper
 * `sudo apt-get install alsa-tools`
 * `sudo apt-get install dpf-plugins dpf-plugins-lv2 `
 * `sudo apt-get install guitarix`
+* `sudo apt-get install zita-at1`
+* `sudo apt-get install x42-plugins`
 
 ## Future Installations
 
