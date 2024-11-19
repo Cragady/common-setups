@@ -123,6 +123,8 @@ Interacts w/qemu
 
 Windows Emulation
 
+This one it may be better to follow the install instructions on the wine website.
+
 `sudo apt-get install wine`
     
 ### Virtual Box (Oracle (ew, but Virtual Box is fun))
@@ -182,4 +184,30 @@ Can also use `gnome-disk-utility`
 `sudo apt-get install neofetch`
 
 Shows some linux, distro, & computer specs.
+
+## Clamav
+
+Antivirus/Scanner
+
+`sudo apt-get install clamav`
+
+## tcsh
+
+Just a shell
+
+`sudo apt-get install tcsh`
+
+## Stopwatch
+
+`sudo apt-get install stopwatch`
+
+## Subversion
+
+`svn`, source control software.
+
+`sudo apt-get install subversion`
+
+## GIMP
+
+`sudo apt-get install gimp`
 
