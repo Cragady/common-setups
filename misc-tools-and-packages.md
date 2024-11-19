@@ -211,3 +211,12 @@ Just a shell
 
 `sudo apt-get install gimp`
 
+## Webp
+
+`sudo apt-get install webp`
+
+## Shotcut
+
+[GitHub Repo](https://github.com/mltframework/shotcut)
+[Download](https://www.shotcut.org/download/)
+
