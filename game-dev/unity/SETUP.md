@@ -25,11 +25,11 @@ If you need an earlier version, change the version in the dropdown in the upper 
 
 After you download the documentation and unzip it, place it in the editor version you have such that the `en` directory looks something like this:
 
-`~/Unity/Hub/Editor/[UnityVersion]/Documentation/en`
+`~/Unity/Hub/Editor/[UnityVersion]/Editor/Data/Documentation/Documentation/en`
 
 e.g.
 
-`~/Unity/Hub/Editor/6000.0.23f1/Documentation/en`
+`~/Unity/Hub/Editor/6000.0.23f1/Editor/Data/Documentation/Documentation/en`
 
 ### Removal
 
