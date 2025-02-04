@@ -15,6 +15,22 @@ The directory /usr/share/keyrings exists.
 The user or group installing the Hub has write permissions to the /usr/share/keyrings directory.
 The user or group installing Hub has at least read permissions to the resulting file Unity_Technologies_ApS.gpg.**
 
+### Documentation
+
+Because Unity can't be fucked to fix their issues with the `Documentation` download functionality still persistent in `Unity Hub 3.11.0`, you may have to install it manually.
+
+Grab it here: https://docs.unity3d.com/Manual/OfflineDocumentation.html
+
+If you need an earlier version, change the version in the dropdown in the upper left corner.
+
+After you download the documentation and unzip it, place it in the editor version you have such that the `en` directory looks something like this:
+
+`~/Unity/Hub/Editor/[UnityVersion]/Documentation/en`
+
+e.g.
+
+`~/Unity/Hub/Editor/6000.0.23f1/Documentation/en`
+
 ### Removal
 
 `sudo apt-get remove unityhub`
