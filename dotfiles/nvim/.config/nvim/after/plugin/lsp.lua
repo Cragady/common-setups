@@ -5,7 +5,7 @@ local uname = vim.loop.sysname
 
 require("mason-lspconfig").setup {
     ensure_installed = {
-	    "tsserver",
+	    "ts_ls",
 	    "eslint",
         "volar",
 	    "clangd",
@@ -53,6 +53,7 @@ end)
 -- (Optional) Configure lua language server for neovim
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
+-- NOTE: OS os get uname linux windows osx
 -- (Optional) Omnisharp-Roslyn/C#/Unity
 if uname == "Linux" then
   local pid = vim.fn.getpid()
@@ -68,7 +69,7 @@ end
 
 local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   init_options = {
     plugins = {
       {
@@ -89,6 +90,26 @@ lspconfig.volar.setup {
     },
   },
 }
+
+local port = os.getenv 'GDScript_Port' or '6005'
+local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
+
+lspconfig.gdscript.setup {
+  cmd = cmd,
+  filetypes = { 'gd', 'gdscript', 'gdscript3' },
+  root_dir = lspconfig.util.root_pattern('project.godot', '.git'),
+}
+
+-- TODO: implement gdshader-lsp https://github.com/godofavacyn/gdshader-lsp
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/gdshader_lsp.lua#L4
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gdshader_lsp
+-- lspconfig.gdshader_lsp.setup {
+--   cmd = { 'gdshader-lsp', '--stdio' },
+--   filetypes = { 'gdshader', 'gdshaderinc' },
+--   root_dir = lspconfig.util.root_pattern 'project.godot',
+-- }
+
+-- NOTE: May need to switch to Lazy.nvim as a package manager. Packer is no longer maintained
 
 lsp.setup()
 
