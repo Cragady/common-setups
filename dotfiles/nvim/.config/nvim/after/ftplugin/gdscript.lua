@@ -1,2 +1,49 @@
-print("hello")
--- print(vim.loop.os_uname().sysname)
+-- https://www.reddit.com/r/neovim/comments/13ski66/neovim_configuration_for_godot_4_lsp_as_simple_as/
+-- https://www.reddit.com/r/neovim/comments/1bizlt3/cant_quite_get_lsp_working_with_godot_and_neovim/
+-- https://nmap.org/download.html#windows -- and add to path
+-- local os_uname = vim.loop.os_uname().sysname -- string
+-- os_uname = string.lower(os_uname)
+-- 
+-- local is_windows = string.find(os_uname, "window")
+-- 
+-- local port = os.getenv('GDScript_Port') or '6005'
+-- local cmd = vim.lsp.rpc.connect('127.0.0.1', port)
+-- -- TODO: change the following line for linux
+-- local pipe = '/path/to/godot.pipe' -- I use /tmp/godot.pipe
+-- 
+-- if is_windows then
+--   cmd = {'ncat', '127.0.0.1', port} -- Needed on Windows?
+--   pipe = [[\\.\pipe\godot.pipe]] -- Needed on Windows?
+-- end
+-- 
+-- vim.lsp.start({
+--   name = 'Godot',
+--   cmd = cmd,
+--   root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
+--   on_attach = function(client, bufnr)
+--     if is_windows then
+--       vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+--     else
+--       print("hi windws")
+--       vim.api.nvim_command([[echo serverstart(']] .. pipe .. [[')]]) -- Needed on Windows?
+--     end
+--   end
+-- })
+
+-- NOTE: Following solution(s) if needed?
+-- NOTE: In GODOT on Linux, maybe Windows if poked enough
+-- Use External Editor: On
+-- Exec Path: nvim
+-- Exec Flags: --server /tmp/godot.pipe --remote-send "<esc>:n {file}<CR>:call cursor({line},{col})<CR>"
+
+-- NOTE: on Windows
+-- Use External Editor: On
+-- Exec Path: nvim
+-- Exec Flags: --server "\\\\.\\pipe\\godot.pipe" --remote-send "<C-\><C-N>:n {file}<CR>:call cursor({line},{col})<CR>"
+
+-- NOTE: Another Solution?
+-- Use External Editor: On
+-- Exec Path: <path/to/script>/start_terminator_with_vim.sh
+-- Exec Flags: {file}
+-- In Script:
+-- terminator -e "nvim --server /tmp/godot.pipe --remote $1 "
