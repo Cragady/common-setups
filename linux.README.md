@@ -43,10 +43,22 @@ OR
 
 If you want p10k fonts (and are cli-only), `wget` these into `~/Downloads`, and load the fonts:
 
-* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+```sh
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
+ https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
+ https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
+ https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf;
+
+# if not exists
+mkdir -p ~/.fonts/misc/MesloLGS
+
+cp 'MesloLGS NF Bold Italic.ttf' ~/.fonts/misc/MesloLGS
+cp 'MesloLGS NF Bold.ttf' ~/.fonts/misc/MesloLGS
+cp 'MesloLGS NF Italic.ttf' ~/.fonts/misc/MesloLGS
+cp 'MesloLGS NF Regular.ttf' ~/.fonts/misc/MesloLGS
+
+sudo fc-cache -f -v ~/.fonts/misc/MesloLGS
+```
 
 Font handling mentioned in the neovim.md. After fonts are installed, it's probably better to let p10k handle setting the font config.
 

@@ -253,6 +253,9 @@ Install Requirements and download + install wanted font.
 https://www.nerdfonts.com/font-downloads - Hack Nerd Font
 
 (cli) `wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip -P ~/Downloads`
+(cli) `unzip Hack.zip -d Hack`
+(cli) `mv Hack ~/.fonts/misc`
+(cli) `sudo fc-cache -f -v ~/.fonts/misc/Hack`
 
 May need to revisit the deps for this package
 
