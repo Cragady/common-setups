@@ -251,11 +251,15 @@ https://github.com/folke/todo-comments.nvim
 Install Requirements and download + install wanted font.
 
 https://www.nerdfonts.com/font-downloads - Hack Nerd Font
+# For windows, download CascadiaCode from https://github.com/ryanoasis/nerd-fonts/releases, and then set the terminal to use this for Ubuntu, or any other shell that needs cli icons
+# copy CaskaydiaCoveNerdFont(Mono?)-* to "C:\Windows\Fonts" and they will be automatically installed
+# Note, Above works with: MesloLG Nerd Font (MesloLGSNerdFont-*) and Hack (HackNerdFont-*)
 
 (cli) `wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip -P ~/Downloads`
 (cli) `unzip Hack.zip -d Hack`
 (cli) `mv Hack ~/.fonts/misc`
 (cli) `sudo fc-cache -f -v ~/.fonts/misc/Hack`
+
 
 May need to revisit the deps for this package
 
