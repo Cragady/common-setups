@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)" # OR?
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -125,7 +126,7 @@ alias git-color-tree="git log --color --graph --pretty=format:'%Cred%h%Creset -%
 alias old-history="cat ~/.zsh_backup_history"
 # alias old-arch="arch -x86_64 zsh"
 # alias new-arch="arch -arm64 zsh"
-alias nvim="~/nvim.appimage"
+# alias nvim="~/nvim.appimage" # Not needed if downloaded binary and placed in ~/bin
 alias emacs='emacs -nw'
 alias minisign="~/Toolkits/minisign/minisign"
 

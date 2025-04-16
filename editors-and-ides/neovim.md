@@ -24,6 +24,7 @@ sudo apt-get install xsel
 
 ```sh
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+# curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 chmod u+x nvim.appimage
 ./nvim.appimage
 ```

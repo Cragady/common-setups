@@ -1,3 +1,5 @@
 */**/plugin/packer_compiled.lua
 *.lnotes.*
+dotfiles/bin/.local/share
+dotfiles/bin/.local/state
 
