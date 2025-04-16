@@ -11,7 +11,7 @@ Some of the dot files in this directory should just be copied over to the user d
 Install nvm (Node Version Manager). https://github.com/nvm-sh/nvm
 
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 ```
 
 Install Zsh, ezpz.
@@ -44,6 +44,7 @@ OR
 If you want p10k fonts (and are cli-only), `wget` these into `~/Downloads`, and load the fonts:
 
 ```sh
+# NOTE: Get Cascadia Code Nerd Font instead
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
  https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
  https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
