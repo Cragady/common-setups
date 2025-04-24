@@ -84,6 +84,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 plugins=(virtualenv)
 
+# This was excluded in base generated .zshrc
 ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
 
@@ -98,11 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='mvim' # likely typo
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64" # Below is new one from generated
 # export ARCHFLAGS="-arch $(uname -m)" # OR?
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
