@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Put me in /etc/grub.d/
+## Full path = /etc/grub.d/50_batocera
+# If needed: sudo chmod +x 50_batocera
+# sudo update-grub
+
+cat << EOF
+menuentry "batocera.linux" {
+      search --set=root --label BATOCERA
+      linux /boot/linux label=BATOCERA console=tty3 quiet loglevel=0 vt.global_cursor_default=0
+      initrd /boot/initrd.gz
+}
+EOF
