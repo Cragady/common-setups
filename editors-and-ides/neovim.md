@@ -35,6 +35,8 @@ OR EVEN BETTER, follow the instructions to extract the appimage, and store that 
 
 I have mine within a dir called `cust-bin`.
 
+OR EVEN BETTERRER (not a word lol), extract from an archive for your architecture and put it in `~/bin`!
+
 ```sh
 # The you shouldn't have to execute the below command if you've already curled it
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -47,6 +49,20 @@ chmod u+x nvim.appimage
 mv squashfs-root ~/cust-bin
 sudo ln -s /home/$USER/cust-bin/squashfs-root/AppRun /usr/bin/nvim
 nvim .
+```
+
+```sh
+# Getting from archive instead
+# Curl if needed, and make sure you curl for your architecture
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+# Be sure to get the correct checksum for your download! This is for a specific version!
+echo "92ecb2dbdfbd0c6d79b522e07c879f7743c5d395d0a4f13b0d4f668f8565527a  nvim-linux-x86_64.tar.gz" | sha256sum -c
+# If you don't have a place for raw program files, then create one. Use whatever naming convention you want.
+mkdir ~/program-files # If not exists, and want this name
+mkdir ~/bin # If not exists.
+tar xzvf nvim-linux-x86_64.tar.gz -C ~/program-files
+# `ln` needs full pathing, so use home var
+ln -s $HOME/program-files/nvim-linux-x86_64/bin/nvim $HOME/bin
 ```
 
 If you need to uninstall/update it, remove the link, remove the extraction, re-curl it, extract the appimage, and re-link to `/usr/bin/nvim`. A simple `ll` or `ls -la` against `/usr/bin` should tell you what's a link and if your `nvim` is a link. (Hint: It should be if you followed these steps. If you installed it via a package manager, use that to uninstall/update nvim as you see fit)
