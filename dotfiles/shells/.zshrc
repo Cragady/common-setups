@@ -118,7 +118,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias python="python3"
+alias python="python3"
 alias la="ls -aG"
 alias ll="ls -laG"
 alias gs="git status"
