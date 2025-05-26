@@ -220,3 +220,15 @@ Just a shell
 [GitHub Repo](https://github.com/mltframework/shotcut)
 [Download](https://www.shotcut.org/download/)
 
+## FontForge
+
+[GitHub Repo](https://github.com/fontforge/fontforge?tab=License-1-ov-file)
+[Site](https://fontforge.org/en-US/)
+
+### Ubuntu Install
+
+`sudo apt-get install fontforge`
+
+### Windows Download
+
+[Download](https://fontforge.org/en-US/downloads/windows/)
