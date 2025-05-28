@@ -232,3 +232,12 @@ Just a shell
 ### Windows Download
 
 [Download](https://fontforge.org/en-US/downloads/windows/)
+
+## xclip
+
+`sudo apt-get install xclip`
+
+## xsel
+
+`sudo apt-get install xsel`
+

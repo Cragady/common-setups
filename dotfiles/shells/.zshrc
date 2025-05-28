@@ -132,6 +132,8 @@ alias old-history="cat ~/.zsh_backup_history"
 # alias nvim="~/nvim.appimage" # Not needed if downloaded binary and placed in ~/bin
 alias emacs='emacs -nw'
 alias minisign="~/Toolkits/minisign/minisign"
+alias copy="xclip -sel clipboard"
+# alias copy="xsel -ib"
 
 export NVM_DIR="/home/cragady/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
