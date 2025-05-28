@@ -68,8 +68,10 @@ if uname == "Linux" then
   }
 end
 
--- NOTE: this was causing issues on the most updated packages
--- local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+-- NOTE: The next line is replaced by the two lines after
+--  local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/packages/vue-language-server/node_modules/@vue/language-server'
+local mason_install_path = vim.fn.expand("$MASON")
+local vue_lsp_path = mason_install_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
 
 lspconfig.ts_ls.setup {
   init_options = {
@@ -84,15 +86,14 @@ lspconfig.ts_ls.setup {
   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 }
 
--- NOTE: volar not working currently
--- lspconfig.volar.setup {
---   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
---   init_options = {
---     vue = {
---       hybridMode = false,
---     },
---   },
--- }
+lspconfig.volar.setup {
+  -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  init_options = {
+    vue = {
+      hybridMode = false,
+    },
+  },
+}
 
 local port = os.getenv 'GDScript_Port' or '6005'
 local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
