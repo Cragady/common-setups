@@ -7,7 +7,8 @@ require("mason-lspconfig").setup {
     ensure_installed = {
 	    "ts_ls",
 	    "eslint",
-        "volar",
+      -- "volar",
+      "vue_ls",
 	    "clangd",
 	    "lua_ls",
 	    "rust_analyzer"
@@ -67,7 +68,8 @@ if uname == "Linux" then
   }
 end
 
-local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+-- NOTE: this was causing issues on the most updated packages
+-- local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
 lspconfig.ts_ls.setup {
   init_options = {
@@ -82,14 +84,15 @@ lspconfig.ts_ls.setup {
   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 }
 
-lspconfig.volar.setup {
-  -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-  init_options = {
-    vue = {
-      hybridMode = false,
-    },
-  },
-}
+-- NOTE: volar not working currently
+-- lspconfig.volar.setup {
+--   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+--   init_options = {
+--     vue = {
+--       hybridMode = false,
+--     },
+--   },
+-- }
 
 local port = os.getenv 'GDScript_Port' or '6005'
 local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
