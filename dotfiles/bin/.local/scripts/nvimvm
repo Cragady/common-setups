@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# TODO: add console colors if feeling motivated
+# TODO: implement better path finding for neovim if feeling motivated
+
+search_dir="$HOME/program-files/nvim-linux-x86_64 $HOME/dev2/sources/neovim/build"
+nvim_sub_path="/bin/nvim"
+nvim_exec_type="daily_driver\ntest_build"
+nvim_exec_path=""
+nvim_type=""
+home_bin="$HOME/bin"
+final_nvim_bin_path=""
+
+function confirm_or_exit() {
+  echo $1
+  read -n 1 -p "Continue (y/n)? " choice
+
+  if [ ! "$choice" = "y" ]; then
+    echo -e "\nExiting."
+    exit 0
+  fi
+  echo -e "\n"
+}
+
+# ls ${nvim_program_files_dir}
+nvim_type=$(echo -e $nvim_exec_type | fzf)
+confirm_or_exit "nvim exec type selected: $nvim_type"
+
+if [[ $nvim_type = "daily_driver" ]]; then
+  nvim_type="nvim"
+else
+  nvim_type="nvim_build"
+fi
+
+find_args_str="-mindepth 1 -maxdepth 1 -type d"
+selected=$(pwd)
+
+while [[ $search_dir != "./" ]] && [[ -n $search_dir ]]; do
+  found_dirs=$(echo -e $search_dir $find_args_str | xargs find)
+  cur_prev_and_dirs="./\n../\n"
+  search_dir=$(echo -e "$cur_prev_and_dirs""$found_dirs" | fzf)
+  search_test=$search_dir$nvim_sub_path
+
+  if [[ -f $search_test ]]; then
+    selected=$search_dir;
+    break;
+  fi
+
+  if [[ $search_dir == "../" ]]; then
+    search_dir=$(echo -e $selected | sed -E "s/\/([^/])+$//g")
+
+    if [[ -z $search_dir ]]; then
+      search_dir="/"
+    fi
+  fi
+  if [[ $search_dir != "./" ]]; then
+    selected=$search_dir
+  fi
+done
+
+nvim_exec_path=$selected$nvim_sub_path
+
+echo "Assumed selected nvim path: $nvim_exec_path"
+
+if [ ! -f $nvim_exec_path ]; then
+  echo "File not found, please run the script again."
+  exit 1
+fi
+echo "File found~!"
+echo "Continuing to linking to bin"
+
+
+final_nvim_bin_path="$home_bin/$nvim_type"
+
+echo "Attempting to link as follows:"
+echo -e "\t $final_nvim_bin_path -> $nvim_exec_path"
+
+confirm_or_exit "Does this look correct?"
+
+echo "WARNING: The command will force an overwrite on previously existing links."
+echo "This is the command used: 'ln -sf $nvim_exec_path $final_nvim_bin_path'"
+confirm_or_exit "Does this look correct?"
+
+ln -sf $nvim_exec_path $final_nvim_bin_path
+
+echo "Linking finished!"
