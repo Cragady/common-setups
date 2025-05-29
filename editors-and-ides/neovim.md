@@ -8,6 +8,17 @@ Some of the key remappings don't work, and this is likely due to me diverging sl
 
 Some other things may also be whack. I may or may not fix this later with a different setup/config.
 
+## Note
+
+The env var + command `NVIM_APPNAME=nvim_0.10.4 nvim` will tell neovim to look in `~/.config/nvim_0.10.4` instead of the default location, and won't persist on exit. This also changes where plugins are added/looked-for by package managers.
+
+Also, `echo "$(cat nvim-linux-x86_64.tar.gz.sha256sum)" |  sha256sum -c` is a useful command structure if you have the sha256sum stored in a file.
+
+```sh
+# nvim-linux-x86_64.tar.gz.sha256sum
+95aaa8e89473f5421114f2787c13ae0ec6e11ebbd1a13a1bd6fcf63420f8073f  nvim-linux-x86_64.tar.gz
+```
+
 ## Very Important Tree-Sitter thing
 
 Run `:TSUpdate` every now and then if tree sitter is giving you issues.

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# TODO: make dynamic
+NVIM_APPNAME=nvim_0.10.4 nvim_build
+
+# This also changes where packages are searched for and added:
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+#  ~/.local/share/nvim_0.10.4/site/pack/packer/start/packer.nvim
