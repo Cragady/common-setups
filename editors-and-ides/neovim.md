@@ -1,12 +1,10 @@
 # Neovim
 
-This setup follows this video: https://www.youtube.com/watch?v=w7i4amO_zaE&ab_channel=ThePrimeagen
+Some things may also whack. I may or may not fix this later with a different setup/config.
 
-Repo: https://github.com/ThePrimeagen/init.lua
+The old config used `Packer` as a package manager, but this has been abandoned for a couple of years. I've switched to `lazy.nvim` for my package management. This is nice, due to package management being mostly automated now.
 
-Some of the key remappings don't work, and this is likely due to me diverging slightly from how ThePrimeagen sets his env up.
-
-Some other things may also be whack. I may or may not fix this later with a different setup/config.
+`deno` is a hard requirement for one of the dependencies, but the setup should still be mostly OK without it. It just won't have the correct functionality for one of the packages.
 
 ## Note
 
