@@ -4,7 +4,7 @@ Some things may also whack. I may or may not fix this later with a different set
 
 The old config used `Packer` as a package manager, but this has been abandoned for a couple of years. I've switched to `lazy.nvim` for my package management. This is nice, due to package management being mostly automated now.
 
-`deno` is a hard requirement for one of the dependencies, but the setup should still be mostly OK without it. It just won't have the correct functionality for one of the packages.
+`deno` and `lua` are hard requirements for some of the dependencies, but the setup should still be mostly OK without it. It just won't have the correct functionality for some of the packages.
 
 ## Note
 
