@@ -25,7 +25,7 @@ This should be after you install all prerequisites for neovim if needed:
 * deno
 * ripgrep
 * fzf - fuzzyfinder (sorta optional?)
-* build-essentials (or equivalent)
+* build-essential (or equivalent)
 * clangd (or equivalent)
 * Hack nerd font (or other wanted font instead)
 

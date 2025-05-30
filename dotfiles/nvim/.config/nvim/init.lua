@@ -1,6 +1,5 @@
 require("config.lazy")
 require("config.remap");
--- require("cragady") -- OLD NEWS
 
 -- TODO: see if wanted
 -- -- DO.not
