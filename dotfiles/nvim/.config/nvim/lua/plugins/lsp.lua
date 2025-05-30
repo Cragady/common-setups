@@ -20,81 +20,6 @@ if ((vim_info.major == 0) and (vim_info.minor < 11)) then
   }
 end
 
--- NOTE: BEGIN MISSING SECTION SOME OF THESE ALREADY HAVE AN ALTERNATIVE IMPLEMENTED
--- local lsp = require('lsp-zero').preset({})
--- local lspconfig = require('lspconfig')
--- local mason_registry = require('mason-registry')
--- local uname = vim.loop.sysname
---
--- -- (Optional) Configure lua language server for neovim
--- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
---
--- -- NOTE: OS os get uname linux windows osx
--- -- (Optional) Omnisharp-Roslyn/C#/Unity
--- if uname == "Linux" then
---   local pid = vim.fn.getpid()
---   local omnisharp_bin = "/opt/omnisharp-roslyn/run"
---   lspconfig.omnisharp.setup{
---     -- on_attach = lsp.on_attach, -- Likely not needed
---     flags = {
---       debounce_text_changes = 150,
---     },
---     cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
---   }
--- end
---
--- -- NOTE: The next line is replaced by the two lines after
--- --  local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/packages/vue-language-server/node_modules/@vue/language-server'
--- local mason_install_path = vim.fn.expand("$MASON")
--- local vue_lsp_path = mason_install_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
---
--- lspconfig.ts_ls.setup {
---   init_options = {
---     plugins = {
---       {
---         name = '@vue/typescript-plugin',
---         location = vue_lsp_path,
---         languages = { 'vue' },
---       },
---     },
---   },
---   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
--- }
---
--- lspconfig.volar.setup {
---   -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
---   init_options = {
---     vue = {
---       hybridMode = false,
---     },
---   },
--- }
---
--- local port = os.getenv 'GDScript_Port' or '6005'
--- local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
---
--- lspconfig.gdscript.setup {
---   cmd = cmd,
---   filetypes = { 'gd', 'gdscript', 'gdscript3' },
---   root_dir = lspconfig.util.root_pattern('project.godot', '.git'),
--- }
---
--- -- TODO: implement gdshader-lsp https://github.com/godofavacyn/gdshader-lsp
--- -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/gdshader_lsp.lua#L4
--- -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gdshader_lsp
--- -- lspconfig.gdshader_lsp.setup {
--- --   cmd = { 'gdshader-lsp', '--stdio' },
--- --   filetypes = { 'gdshader', 'gdshaderinc' },
--- --   root_dir = lspconfig.util.root_pattern 'project.godot',
--- -- }
---
--- -- NOTE: May need to switch to Lazy.nvim as a package manager. Packer is no longer maintained
---
--- lsp.setup()
-
--- NOTE END MISSING SECTION
-
-
 return {
   -- NOTE: replaces -- 'VonHeikemen/lsp-zero.nvim'
   'neovim/nvim-lspconfig',
@@ -184,6 +109,94 @@ return {
                 },
               }
             }
+          }
+        end,
+
+        ['omnisharp'] = function()
+          local lspconfig = require('lspconfig')
+          local mason_registry = require('mason-registry')
+          local uname = vim.loop.sysname
+          -- NOTE: OS os get uname linux windows osx
+          -- (Optional) Omnisharp-Roslyn/C#/Unity
+          if uname == "Linux" then
+            local pid = vim.fn.getpid()
+            local omnisharp_bin = "/opt/omnisharp-roslyn/run"
+            lspconfig.omnisharp.setup{
+              -- on_attach = lsp.on_attach, -- Likely not needed
+              flags = {
+                debounce_text_changes = 150,
+              },
+              cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+            }
+          else
+            lspconfig.omnisharp.setup({})
+          end
+        end,
+
+        ['ts_ls'] = function()
+          local lspconfig = require('lspconfig')
+          local mason_install_path = vim.fn.expand("$MASON")
+          local vue_lsp_path = mason_install_path .. '/packages/vue-language-server/node_modules/@vue/language-server'
+          lspconfig.ts_ls.setup {
+            init_options = {
+              plugins = {
+                {
+                  name = '@vue/typescript-plugin',
+                  location = vue_lsp_path,
+                  languages = { 'vue' },
+                },
+              },
+            },
+            -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          }
+        end,
+
+        ['volar'] = function()
+          local lspconfig = require('lspconfig')
+          lspconfig.volar.setup {
+            -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+            init_options = {
+              vue = {
+                hybridMode = false,
+              },
+            },
+          }
+        end,
+
+        ['gdscript'] = function()
+          local lspconfig = require('lspconfig')
+          local port = os.getenv 'GDScript_Port' or '6005'
+          local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
+          lspconfig.setup {
+            name = 'godot',
+            cmd = cmd,
+            filetypes = { 'gd', 'gdscript', 'gdscript3' },
+            root_dir = lspconfig.util.root_pattern('project.godot', '.git'),
+            docs = {
+              description = [[
+https://github.com/godotengine/godot
+
+Language server for GDScript, used by Godot Engine.
+]],
+            },
+          }
+        end,
+        ['gshader'] = function()
+          local lspconfig = require('lspconfig')
+          -- TODO: implement gdshader-lsp https://github.com/godofavacyn/gdshader-lsp
+          -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/gdshader_lsp.lua#L4
+          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gdshader_lsp
+          lspconfig.gdshader_lsp.setup {
+            cmd = { 'gdshader-lsp', '--stdio' },
+            filetypes = { 'gdshader', 'gdshaderinc' },
+            root_dir = lspconfig.util.root_pattern 'project.godot',
+            docs = {
+              description = [[
+https://github.com/godofavacyn/gdshader-lsp
+
+A language server for the Godot Shading language.
+]],
+            },
           }
         end,
       },
