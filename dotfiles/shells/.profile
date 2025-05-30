@@ -30,3 +30,4 @@ export MGFXC_WINE_PATH=/home/cragady/.winemonogame
 . "$HOME/.cargo/env"
 
 [ -f "/home/cragady/.ghcup/env" ] && . "/home/cragady/.ghcup/env" # ghcup-env
+. "/home/cragady/.deno/env"

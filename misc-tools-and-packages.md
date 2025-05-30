@@ -241,3 +241,14 @@ Just a shell
 
 `sudo apt-get install xsel`
 
+## Deno
+
+```c
+// Todo: Move to appropriate location eventually
+```
+
+`curl -fsSL https://deno.land/install.sh | sh`
+
+Windows:
+`choco install deno`
+

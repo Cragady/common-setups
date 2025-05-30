@@ -1,0 +1,17 @@
+-- --- Enables transparency on the active window. If transparency is wanted on all
+-- --- windows, then enable transparency via the theme.
+-- --- @param color string | nil
+-- --- @param transparent boolean | nil
+-- function ColorMyPencils(color, transparent)
+--   -- color = color or "rose-pine"
+--   color = color or "tokyonight"
+--   if transparent == nil then transparent = true end
+--   vim.cmd.colorscheme(color)
+--   if transparent then
+--     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--     if color == 'onedark' then
+--       vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'none' })
+--     end
+--   end
+-- end

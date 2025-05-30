@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
     -- use("theprimeagen/refactoring.nvim")  -- see if wanted
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+
     -- use("nvim-treesitter/nvim-treesitter-context");
 
     -- use("epwalsh/obsidian.nvim") -- maybe

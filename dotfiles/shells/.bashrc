@@ -145,3 +145,5 @@ source ~/.config/z-my-envs/.reset-env.env
 alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
 
 . "$HOME/.cargo/env"
+. "/home/cragady/.deno/env"
+source /home/cragady/.local/share/bash-completion/completions/deno.bash

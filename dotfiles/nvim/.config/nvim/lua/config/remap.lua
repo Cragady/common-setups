@@ -1,4 +1,3 @@
--- NOTE: OLD FILE - DO NOT USE
 -- NOTE: mapleader and maplocalleader are now taken care of by config/lazy.lua
 -- vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
