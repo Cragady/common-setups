@@ -1,15 +1,32 @@
+local vim_info = vim.version()
+-- vim_info.major
+-- vim_info.minor
+-- vim_info.patch
+
+local mason_lspconfig = {
+  "williamboman/mason-lspconfig.nvim",
+  -- commit = "1a31f824b9cd5bc6f342fc29e9a53b60d74af245",
+  -- tag = "v1.32.0",
+  -- branch = "v1.x",
+}
+
+-- print(vim.inspect(vim_info))
+if ((vim_info.major == 0) and (vim_info.minor < 11)) then
+  mason_lspconfig = {
+    "williamboman/mason-lspconfig.nvim",
+    -- commit = "1a31f824b9cd5bc6f342fc29e9a53b60d74af245",
+    -- tag = "v1.32.0",
+    branch = "v1.x",
+  }
+end
+
 return {
   -- NOTE: replaces -- 'VonHeikemen/lsp-zero.nvim'
   'neovim/nvim-lspconfig',
   dependencies = {
     "stevearc/conform.nvim",
     "williamboman/mason.nvim",
-    {
-      "williamboman/mason-lspconfig.nvim",
-      -- commit = "1a31f824b9cd5bc6f342fc29e9a53b60d74af245",
-      -- tag = "v1.32.0",
-      -- branch = "v1.x",
-    },
+    mason_lspconfig,
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
