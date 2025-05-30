@@ -52,14 +52,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- deletes to void in normal or visual
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
--- This is going to get me cancelled - ThePrimeagen (lol)
--- Useful for exiting input mode while retaining your changes
--- I don't have this issue because I didn't pick this up from
--- from IntelliJ
--- vim.keymap.set("i", "<C-c>", "<Esc>"), don't need
-
--- Capital "Q" is the "worst place in the universe" lmao
--- Capital "Q" replays last recorded macro. That's terrible hahaha
 -- More info: `:h Q_re`, `:h x` -> `/Q`
 ---- :nnoremap Q gq
 vim.keymap.set("n", "QQ", "Q")
