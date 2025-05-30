@@ -4,7 +4,12 @@ return {
   dependencies = {
     "stevearc/conform.nvim",
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    {
+      "williamboman/mason-lspconfig.nvim",
+      -- commit = "1a31f824b9cd5bc6f342fc29e9a53b60d74af245",
+      -- tag = "v1.32.0",
+      -- branch = "v1.x",
+    },
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
