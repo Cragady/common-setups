@@ -17,6 +17,41 @@ Also, `echo "$(cat nvim-linux-x86_64.tar.gz.sha256sum)" |  sha256sum -c` is a us
 95aaa8e89473f5421114f2787c13ae0ec6e11ebbd1a13a1bd6fcf63420f8073f  nvim-linux-x86_64.tar.gz
 ```
 
+## From Packer to Lazy.nvim
+
+This should be after you install all prerequisites for neovim if needed:
+
+* lua
+* deno
+* ripgrep
+* fzf - fuzzyfinder (sorta optional?)
+* build-essentials (or equivalent)
+* clangd (or equivalent)
+* Hack nerd font (or other wanted font instead)
+
+
+### Windows
+
+* Delete or move these directories to backup folder:
+  * ~/AppData/Local/nvim
+  * ~/AppData/Local/nvim-data
+* `cp -r ~/common-setups/dotfiles/nvim/.config/nvim ~/AppData/Local`
+* `nvim .`
+
+### Linux
+
+This was primarily done on Ubuntu distros. If you have a different distro and it's not the same, you likely know how to figure out the correct things to do anyway. Which brings up the issue of using `stow` to install dotfiles, may need some elbow grease.
+
+* Delete or move these directories to a backup folder:
+  * ~/.config/nvim 
+    * NOTE: may not be necessary if the stow-install command works without issue.
+  * ~/.local/share/nvim
+* `cd ~/common-setups/dotfiles`
+* `./stow-install.sh`
+  * NOTE: may need to be reran if issues occur
+* `nvim .`
+
+
 ## Very Important Tree-Sitter thing
 
 Run `:TSUpdate` every now and then if tree sitter is giving you issues.
@@ -174,7 +209,7 @@ Required for the <C-f> keybinding
 
 `sudo apt-get install tmux`
 
-## Package Manager (May change later)
+## LEGACY DO NOT USE: Package Manager (May change later)
 
 https://github.com/wbthomason/packer.nvim
 
@@ -229,7 +264,7 @@ use {
 
 https://github.com/rose-pine/neovim
 
-## Treesitter
+## Treesitter (Maybe not explicitly needed after lazy?)
 
 https://github.com/nvim-treesitter/nvim-treesitter
 
