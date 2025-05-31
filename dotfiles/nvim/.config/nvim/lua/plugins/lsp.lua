@@ -147,27 +147,27 @@ return {
                 },
               },
             },
-            -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+            filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
           }
         end,
 
-        ['volar'] = function()
-          local lspconfig = require('lspconfig')
-          lspconfig.volar.setup {
-            -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-            init_options = {
-              vue = {
-                hybridMode = false,
-              },
-            },
-          }
-        end,
+        -- ['volar'] = function()
+        --   local lspconfig = require('lspconfig')
+        --   lspconfig.volar.setup {
+        --     -- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        --     init_options = {
+        --       vue = {
+        --         hybridMode = false,
+        --       },
+        --     },
+        --   }
+        -- end,
 
         ['gdscript'] = function()
           local lspconfig = require('lspconfig')
           local port = os.getenv 'GDScript_Port' or '6005'
           local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
-          lspconfig.setup {
+          lspconfig.gdscript.setup {
             name = 'godot',
             cmd = cmd,
             filetypes = { 'gd', 'gdscript', 'gdscript3' },
@@ -181,11 +181,12 @@ Language server for GDScript, used by Godot Engine.
             },
           }
         end,
-        ['gshader'] = function()
+        ['gshader_lsp'] = function()
           local lspconfig = require('lspconfig')
           -- TODO: implement gdshader-lsp https://github.com/godofavacyn/gdshader-lsp
           -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/gdshader_lsp.lua#L4
           -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gdshader_lsp
+          -- https://www.reddit.com/r/neovim/comments/1c2bhcs/godotgdscript_in_neovim_with_lsp_and_debugging_in/
           lspconfig.gdshader_lsp.setup {
             cmd = { 'gdshader-lsp', '--stdio' },
             filetypes = { 'gdshader', 'gdshaderinc' },

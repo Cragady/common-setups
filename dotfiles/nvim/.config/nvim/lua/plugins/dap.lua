@@ -47,6 +47,25 @@ return {
       vim.keymap.set("n", "<leader>B", function()
         dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end, { desc = "Debug: Set Conditional Breakpoint" })
+
+      local port_lsp = os.getenv 'GDScript_Port' or '6005'
+      local port = tonumber(port_lsp) + 1
+      dap.adapters.godot = {
+        type = "server",
+        host = "127.0.0.1",
+        port,
+      }
+
+      dap.configurations.gdscript = {
+        {
+          type = "godot",
+          request = "launch",
+          name = "Launch scene",
+          project = "${workspaceFolder}",
+          launch_scene = true,
+        },
+      }
+
     end
   },
 
