@@ -51,6 +51,17 @@ https://www.plasticscm.com/plastic-for-linux
 
 ## Other - LSP & Other setup
 
+### Dependencies
+
+May need these dependencies:
+
+* libssl-dev
+* openssl
+* libssl3
+* libuv (optional)
+
+### Continued
+
 Use the official `mono` repo
 
 https://www.mono-project.com/download/stable/#download-lin-ubuntu

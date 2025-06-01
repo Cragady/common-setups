@@ -4,7 +4,14 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      go = { "gofmt" }
+      go = { "gofmt" },
+      cs = { "csharpier" },
+    },
+    formatters = {
+      csharpier = {
+        command = "dotnet-csharpier",
+        args = { "--write-stdout" },
+      },
     },
   },
 }
