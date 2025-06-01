@@ -81,6 +81,7 @@ return {
           "lua_ls",
           "rust_analyzer",
           "csharpier",
+          "omnisharp",
           "netcoredbg",
         },
         handlers = {
