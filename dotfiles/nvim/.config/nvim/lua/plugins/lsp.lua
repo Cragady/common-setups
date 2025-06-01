@@ -129,7 +129,9 @@ return {
               cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
             }
           else
-            lspconfig.omnisharp.setup({})
+            lspconfig.omnisharp.setup({
+              capabilities = capabilities,
+            })
           end
         end,
 
