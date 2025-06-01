@@ -66,7 +66,7 @@ return {
         vim.lsp.protocol.make_client_capabilities(),
         cmp_lsp.default_capabilities()
       )
-      local uname = vim.loop.sysname
+      -- local uname = vim.loop.sysname
       -- local mason_registry = require('mason-registry')
 
       require('fidget').setup({})
@@ -132,6 +132,7 @@ return {
           ['omnisharp'] = function()
             -- TODO: clean up & find way to start lsp server in a sub-dir
             -- that contains csproj or other file, or just start with .cs
+            -- This is only an issue on windows
             local lspconfig = require('lspconfig')
             local mason_registry = require('mason-registry')
             -- local uname = vim.loop.sysname
@@ -165,12 +166,15 @@ return {
             -- if uname == "Linux" then
             local omni_log_dir = os.getenv("HOME") .. "/.vim/OmiSharp_log"
             local mason_install_path = vim.fn.expand("$MASON")
-            local omni_bin = mason_install_path .. '/bin/OmniSharp.cmd'
+            local omni_bin = mason_install_path .. '/packages/omnisharp/OmniSharp'
 
-            -- local uname = assert(vim.loop.os_uname().sysname)
-            -- uname = string.lower(uname)
-            -- local is_windows = string.find(uname, 'windows')
+            local uname = assert(vim.loop.os_uname().sysname)
+            uname = string.lower(uname)
+            local is_windows = string.find(uname, 'windows')
             -- vim.g.OmniSharp_log_dir = omni_log_dir
+            if is_windows then
+              omni_bin = mason_install_path .. '/bin/OmniSharp.cmd'
+            end
             local pid = vim.fn.getpid()
             -- local omnisharp_bin = "/opt/omnisharp-roslyn/run"
             lspconfig.omnisharp.setup{
