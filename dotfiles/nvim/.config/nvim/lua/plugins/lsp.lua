@@ -130,9 +130,11 @@ return {
           end,
 
           ['omnisharp'] = function()
+            -- TODO: clean up & find way to start lsp server in a sub-dir
+            -- that contains csproj or other file, or just start with .cs
             local lspconfig = require('lspconfig')
             local mason_registry = require('mason-registry')
-            local uname = vim.loop.sysname
+            -- local uname = vim.loop.sysname
 
             -- print('setting up omnisharp')
             -- lspconfig.omnisharp.setup({
@@ -161,30 +163,34 @@ return {
             -- NOTE: OS os get uname linux windows osx
             -- (Optional) Omnisharp-Roslyn/C#/Unity
             -- if uname == "Linux" then
-              local omni_log_dir = os.getenv("HOME") .. "/.vim/OmiSharp_log"
-              local mason_install_path = vim.fn.expand("$MASON")
-              local omni_bin = mason_install_path .. '/packages/omnisharp/OmniSharp'
+            local omni_log_dir = os.getenv("HOME") .. "/.vim/OmiSharp_log"
+            local mason_install_path = vim.fn.expand("$MASON")
+            local omni_bin = mason_install_path .. '/bin/OmniSharp.cmd'
 
-              vim.g.OmniSharp_log_dir = omni_log_dir
-              local pid = vim.fn.getpid()
-              -- local omnisharp_bin = "/opt/omnisharp-roslyn/run"
-              lspconfig.omnisharp.setup{
-                -- on_attach = lsp.on_attach, -- Likely not needed
-                flags = {
-                  debounce_text_changes = 150,
-                },
-                -- cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
-                -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.dll" },
-                -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.dll" },
-                cmd = { omni_bin, "--languageserver", "--hostPID", tostring(pid) },
-                enable_roslyn_analyzers = true,
-                organize_imports_on_format = true,
-                enable_import_completion = true,
-                -- log_dir = omni_log_dir,
-                -- root_dir = function ()
-                --     return vim.loop.cwd() -- current working directory
-                -- end,
-              }
+            -- local uname = assert(vim.loop.os_uname().sysname)
+            -- uname = string.lower(uname)
+            -- local is_windows = string.find(uname, 'windows')
+            -- vim.g.OmniSharp_log_dir = omni_log_dir
+            local pid = vim.fn.getpid()
+            -- local omnisharp_bin = "/opt/omnisharp-roslyn/run"
+            lspconfig.omnisharp.setup{
+              capabilities = capabilities,
+              -- on_attach = lsp.on_attach, -- Likely not needed
+              flags = {
+                debounce_text_changes = 150,
+              },
+              -- cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+              -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.dll" },
+              -- cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp.dll" },
+              cmd = { omni_bin, "--languageserver", "--hostPID", tostring(pid) },
+              enable_roslyn_analyzers = true,
+              organize_imports_on_format = true,
+              enable_import_completion = true,
+              -- log_dir = omni_log_dir,
+              -- root_dir = function ()
+              --     return vim.loop.cwd() -- current working directory
+              -- end,
+            }
             -- else
             --   lspconfig.omnisharp.setup({
             --     capabilities = capabilities,
