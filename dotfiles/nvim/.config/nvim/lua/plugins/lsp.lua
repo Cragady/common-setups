@@ -180,10 +180,10 @@ return {
                 enable_roslyn_analyzers = true,
                 organize_imports_on_format = true,
                 enable_import_completion = true,
-                log_dir = omni_log_dir,
-                root_dir = function ()
-                    return vim.loop.cwd() -- current working directory
-                end,
+                -- log_dir = omni_log_dir,
+                -- root_dir = function ()
+                --     return vim.loop.cwd() -- current working directory
+                -- end,
               }
             -- else
             --   lspconfig.omnisharp.setup({

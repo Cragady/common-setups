@@ -21,6 +21,7 @@ Also, `echo "$(cat nvim-linux-x86_64.tar.gz.sha256sum)" |  sha256sum -c` is a us
 
 This should be after you install all prerequisites for neovim if needed:
 
+* libreadline-dev or readline-devel
 * lua
 * deno
 * ripgrep
@@ -104,7 +105,7 @@ echo "92ecb2dbdfbd0c6d79b522e07c879f7743c5d395d0a4f13b0d4f668f8565527a  nvim-lin
 # If you don't have a place for raw program files, then create one. Use whatever naming convention you want.
 mkdir ~/program-files # If not exists, and want this name
 mkdir ~/bin # If not exists.
-tar xzvf nvim-linux-x86_64.tar.gz -C ~/program-files
+tar -xzvf nvim-linux-x86_64.tar.gz -C ~/program-files
 # `ln` needs full pathing, so use home var
 ln -s $HOME/program-files/nvim-linux-x86_64/bin/nvim $HOME/bin
 ```
