@@ -67,6 +67,8 @@ return {
         cmp_lsp.default_capabilities()
       )
       -- local uname = vim.loop.sysname
+      vim.lsp.enable('gdscript')
+      vim.lsp.enable('gdshader_lsp')
       -- local mason_registry = require('mason-registry')
 
       require('fidget').setup({})
@@ -80,9 +82,9 @@ return {
           "clangd",
           "lua_ls",
           "rust_analyzer",
-          "csharpier",
           "omnisharp",
-          "netcoredbg",
+          -- "csharpier",
+          -- "netcoredbg",
           "gdtoolkit",
         },
         handlers = {
@@ -237,7 +239,8 @@ return {
             local lspconfig = require('lspconfig')
             local port = os.getenv 'GDScript_Port' or '6005'
             local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
-            lspconfig.gdscript.setup {
+            vim.lsp.config('gdscript', {
+              capabilities = capabilities,
               name = 'godot',
               cmd = cmd,
               filetypes = { 'gd', 'gdscript', 'gdscript3' },
@@ -249,7 +252,7 @@ https://github.com/godotengine/godot
 Language server for GDScript, used by Godot Engine.
 ]],
               },
-            }
+            })
           end,
           ['gshader_lsp'] = function()
             local lspconfig = require('lspconfig')
@@ -258,6 +261,7 @@ Language server for GDScript, used by Godot Engine.
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#gdshader_lsp
             -- https://www.reddit.com/r/neovim/comments/1c2bhcs/godotgdscript_in_neovim_with_lsp_and_debugging_in/
             lspconfig.gdshader_lsp.setup {
+              capabilities = capabilities,
               cmd = { 'gdshader-lsp', '--stdio' },
               filetypes = { 'gdshader', 'gdshaderinc' },
               root_dir = lspconfig.util.root_pattern 'project.godot',
