@@ -25,7 +25,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
    callback = function()
       if vim.o.nu then
          vim.opt.relativenumber = false
-         vim.cmd "redraw"
+         -- NOTE: with the chagnes in 0.11.0, this screws with `vim.lsp.buf.code_action()`
+         -- if behavior is whack without `vim.cmd "redraw"` please find an alternative
+         -- for this behavior
+         -- vim.cmd "redraw"
       end
    end,
 })
