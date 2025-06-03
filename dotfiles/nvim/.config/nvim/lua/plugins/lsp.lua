@@ -85,7 +85,7 @@ return {
           "omnisharp",
           -- "csharpier",
           -- "netcoredbg",
-          "gdtoolkit",
+          -- "gdtoolkit",
         },
         handlers = {
           function(server_name) -- default handler (optional)
