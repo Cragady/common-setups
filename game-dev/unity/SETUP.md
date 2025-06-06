@@ -90,3 +90,10 @@ We'll need to sorta trick Unity into generating files for the LSP to act on, so 
 
 https://neovim.discourse.group/t/how-to-setup-omnisharp-on-linux-for-unity-c-with-mono-via-nvim-lspconfig/2928
 https://chrislabarge.com/posts/neovim-unity-engine/
+
+#### NOTE ON DOTNET AND MONO
+
+Mono and .Net can cause interop with WSL and Windows. Use the following command if you have need of interop and Mono/.Net:
+
+`sudo update-binfmts --disable cli`
+
