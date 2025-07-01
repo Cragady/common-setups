@@ -1,7 +1,15 @@
+local os_uname = vim.loop.os_uname().sysname -- string
+os_uname = string.lower(os_uname)
+local is_windows = string.find(os_uname, "window")
+
 --vim.opt.guicursor = ""
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+if is_windows then
+  vim.opt.shell = 'bash'
+end
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
