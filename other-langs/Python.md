@@ -12,6 +12,12 @@ For some reasons, I have the following installed manually:
 
 Just install a higher version of python if you don't want to use the system's default version. There may be a python version manager like node's `nvm`, so that may be worth looking into. 
 
+## Conda (conda-forge)
+
+https://conda-forge.org/download/ - For install script
+
+`bash Miniforge3-$(uname)-$(uname -m).sh`
+
 ## Misc Items
 
 `sudo apt-get install python-tk python3-tk`
