@@ -12,6 +12,23 @@ For some reasons, I have the following installed manually:
 
 Just install a higher version of python if you don't want to use the system's default version. There may be a python version manager like node's `nvm`, so that may be worth looking into. 
 
+## Python Managers
+
+### PyEnv
+
+https://github.com/pyenv/pyenv
+
+### uv
+
+Python Version Manager and Package/Project manager - written in rust.
+
+https://github.com/astral-sh/uv
+
+```sh
+# On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
 ## Conda (conda-forge)
 
 https://conda-forge.org/download/ - For install script
