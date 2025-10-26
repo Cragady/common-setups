@@ -40,6 +40,42 @@ export VCPKG_ROOT=~/Toolkits/vcpkg
 export PATH=$VCPKG_ROOT:$PATH
 ```
 
+## RISC-V
+
+`git clone https://github.com/riscv/riscv-gnu-toolchain`
+
+### Ubuntu Prerequisites
+
+```sh
+$ sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip python3-tomli libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libslirp-dev
+```
+
+#### Helper Script Setup Testing Environment Prerequisite
+
+```sh
+sudo apt-get install python3-pyelftools
+```
+
+### Newlib (Installation - Cross-Compiler)
+
+Pick a writeable install path, like `/opt/riscv` - If another path is specified, change the value below
+
+```sh
+./configure --prefix=/opt/riscv
+make
+```
+
+### Newlib/Linux multilib
+
+For 32-bit and 64-bit support
+
+```sh
+./configure --prefix=/opt/riscv --enable-multilib
+make
+# OR (or both?)
+make linux
+```
+
 ## GUI/GPU/Other Friends (Doesn't have to be c/c++ specific)
 
 Some of these will be cross-platform, where others will not. Some are libs, some are specifications, be sure to choose wisely with what you want to do. Some will be really old, and will need to have a new technology/api/spec used instead.
