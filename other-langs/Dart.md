@@ -35,6 +35,8 @@ dart --disable-analytics
 
 ## Flutter
 
+NOTE: If you install Flutter and don't have dart installed, you can just install Flutter. Flutter includes the Dart SDK.
+
 https://flutter.dev
 https://docs.flutter.dev/get-started/manual
 https://docs.flutter.dev
