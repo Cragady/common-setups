@@ -29,6 +29,7 @@ This should be after you install all prerequisites for neovim if needed:
 * fzf - fuzzyfinder (sorta optional?)
 * build-essential (or equivalent)
 * clangd (or equivalent)
+  * And the libc++ or libstdc++ dev version that it uses
 * Hack nerd font (or other wanted font instead)
 
 
@@ -185,6 +186,15 @@ OR (Likely the correct solution below):
 ```sh
 sudo apt-get install clangd-12
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+```
+
+```sh
+# Install the standard lib, check to see what it's trying to use `clang++ --verbose`
+sudo apt-get install libstdc++-13-dev # GCC 13
+# AND/OR
+sudo apt-get install libstdc++-14-dev # GCC 14
+# AND/OR
+sudo apt-get install libc++-18-dev # Clang 18
 ```
 
 This solution started working after a few starts of neovim. I thought I was going to have to look into it a bit more heavily.
