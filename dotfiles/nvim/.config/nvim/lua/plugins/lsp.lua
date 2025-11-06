@@ -67,6 +67,7 @@ return {
         cmp_lsp.default_capabilities()
       )
       -- local uname = vim.loop.sysname
+      vim.lsp.enable('arduino_language_server')
       vim.lsp.enable('gdscript')
       vim.lsp.enable('gdshader_lsp')
       -- local mason_registry = require('mason-registry')
