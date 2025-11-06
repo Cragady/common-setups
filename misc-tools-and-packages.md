@@ -252,3 +252,33 @@ Just a shell
 Windows:
 `choco install deno`
 
+## Task
+
+https://taskfile.dev
+
+https://github.com/go-task/task
+
+https://taskfile.dev/docs/installation
+
+Modern task runner inspired by Make.
+
+Cross-platform build tool.
+
+```sh
+curl -1sLf 'https://dl.cloudsmith.io/public/task/task/setup.deb.sh' | sudo -E bash
+sudo apt-get install task
+```
+
+## Homebrew
+
+https://github.com/homebrew
+
+https://brew.sh
+
+Alternative package manager, may conflict with other package managers.
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+
