@@ -1,5 +1,9 @@
 # Dart
 
+```sh
+# TODO: create a function that loads in flutter instead of having the env file add it to path if a separate Dart is wanted from Flutter's Dart.
+```
+
 Compiles to ARM, x64, and RISC-V machine code for applications on these architectures.
 
 Compiles to JavaScript & WebAssembly for web apps.
