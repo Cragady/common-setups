@@ -281,4 +281,8 @@ Alternative package manager, may conflict with other package managers.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## Some Network Tools
 
+```sh
+sudo apt-get install nmap wireshark net-tools
+```
