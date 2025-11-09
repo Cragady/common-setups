@@ -286,3 +286,9 @@ Alternative package manager, may conflict with other package managers.
 ```sh
 sudo apt-get install nmap wireshark net-tools
 ```
+
+## Libinput Tools
+
+```sh
+sudo apt-get install libinput-tools
+```
