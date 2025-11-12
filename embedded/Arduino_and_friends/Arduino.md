@@ -42,6 +42,29 @@ ln -s $HOME/go/bin/arduino-language-server ~/bin
  -fqbn arduino:mbed:nanorp2040connect
 ```
 
+## IO/Serial from CLI Instead of IDE
+
+To read from Arduino's serial port, you'll need to set `stty` to have the same input/output speeds that Arduino's Serial is set to:
+
+```sh
+# Serial.begin(9600); Can be any number, not just 9600, as long as the below command reflects this
+stty -F /dev/ttyACM0 raw 9600 # Could be another device, not just /dev/ttyACM0
+# And to read:
+cat /dev/ttyACM0
+```
+
+After using the `stty` command, you'll be able to see the Serial outputs from Arduino. This won't work super well when a shell is emulated in the Neovim environment.
+
+To send messages to the Aruino, just use echo:
+
+```sh
+echo high > /dev/ttyACM0 # Or any input you need to send
+```
+
+Occasionally this doesn't work quite as expected and for some reason repeats the input and/or output. Unsure if this is an issue setting up communication between the Aruino and linux, an issue with the Arduino's hardware, or an issue in the program uploaded to the Arduino.
+
+This may have more to do with the communication setup with the Arduino. `arduino-cli monitor` works perfectly for two way communication.
+
 ## arduino-lint
 
 https://github.com/arduino/arduino-lint
