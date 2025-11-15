@@ -292,3 +292,13 @@ sudo apt-get install nmap wireshark net-tools
 ```sh
 sudo apt-get install libinput-tools
 ```
+
+## KiCad
+
+https://www.kicad.org/download/linux
+
+```sh
+sudo add-apt-repository ppa:kicad/kicad-9.0-releases
+sudo apt-get update
+sudo apt-get install kicad
+```
