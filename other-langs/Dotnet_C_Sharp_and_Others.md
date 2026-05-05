@@ -17,3 +17,11 @@ sudo apt-get update && \
 
 sudo apt-get install -y dotnet-runtime-9.0
 ```
+
+## Useful Tools
+
+```bash
+dotnet workload install wasm-tools
+# To check other workload installs
+dotnet workload list
+```
