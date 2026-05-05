@@ -189,3 +189,7 @@ __conda_setup="$('/home/cragady/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev
   # <<< mamba initialize <<<
 }
 
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
