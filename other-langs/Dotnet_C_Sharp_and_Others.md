@@ -20,6 +20,8 @@ sudo apt-get install -y dotnet-runtime-9.0
 
 ## Useful Tools
 
+https://learn.microsoft.com/en-us/aspnet/core/blazor/webassembly-build-tools-and-aot?view=aspnetcore-10.0
+
 ```bash
 dotnet workload install wasm-tools
 # To check other workload installs
