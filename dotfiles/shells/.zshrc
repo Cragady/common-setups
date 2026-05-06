@@ -193,3 +193,7 @@ __conda_setup="$('/home/cragady/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# export DOTNET_ROOT="$HOME/.dotnet"
+# export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
+
