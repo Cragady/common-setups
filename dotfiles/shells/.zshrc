@@ -136,6 +136,8 @@ alias emacs='emacs -nw'
 alias minisign="~/Toolkits/minisign/minisign"
 alias copy="xclip -sel clipboard"
 # alias copy="xsel -ib"
+alias bw="flatpak run --command=bw com.bitwarden.desktop"
+alias bw-desk="flatpak run --verbose com.bitwarden.desktop --enable-logging=file --log-file=~/tmp/bitwarden.log"
 
 export NVM_DIR="/home/cragady/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
