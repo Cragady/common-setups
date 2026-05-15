@@ -1,5 +1,8 @@
+require("config.set"); -- NOTE: needs to come before config.lazy!
 require("config.lazy")
 require("config.remap");
+
+require("utils.redir").setup();
 
 -- TODO: see if wanted
 -- -- DO.not

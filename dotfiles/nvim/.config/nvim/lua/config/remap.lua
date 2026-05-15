@@ -30,10 +30,10 @@ vim.keymap.set("n", "<leader>lspr", "<cmd>LspRestart<cr>")
 -- Not installed or configured yet. Sounds like fun, may look into later
 -- https://github.com/ThePrimeagen/vim-with-me
 -- vim.keymap.set("n", "<leader>vwm", function()
---     require("vim-with-me").StartVimWithMe()
+--   require("vim-with-me").StartVimWithMe()
 -- end)
 -- vim.keymap.set("n", "<leader>svwm", function()
---     require("vim-with-me").StopVimWithMe()
+--   require("vim-with-me").StopVimWithMe()
 -- end)
 
 -- greatest remap ever
@@ -63,7 +63,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- NOTE: only for after installing conform.nvim - this is a formatter that helps
 -- keep fold marks and other marks in buffer
 -- vim.keymap.set("n", "<leader>f", function()
---     require("conform").format({ bufnr = 0 })
+--   require("conform").format({ bufnr = 0 })
 -- end)
 -- vvv Useful for debugging
 -- vim.keymap.set("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
@@ -104,14 +104,83 @@ vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>");
 
 -- sources current file (two spaces), I don't like this remap, just use `:so`
 -- vim.keymap.set("n", "<leader><leader>", function()
---     vim.cmd("so")
+--   vim.cmd("so")
 -- end)
 
 
 -- Golang specific binding
 vim.keymap.set(
-    "n",
-    "<leader>ee",
-    "oif err != nil {<CR>}<Esc>Oreturn err"
+  "n",
+  "<leader>ee",
+  "oif err != nil {<CR>}<Esc>Oreturn err"
 )
 
+-- For utils.redir
+
+local redir = require("utils.redir")
+
+vim.keymap.set("n", "<leader>fm", function()
+  redir.pick("map")
+end, {
+  desc = "Find mappings",
+})
+
+vim.keymap.set("n", "<leader>fv", function()
+  require("utils.redir").pick("verbose map")
+end, {
+  desc = "Find verbose mappings",
+})
+
+vim.keymap.set("n", "<leader>fc", function()
+  redir.pick("command")
+end, {
+  desc = "Find commands",
+})
+
+vim.keymap.set("n", "<leader>fa", function()
+  redir.pick("abbreviate")
+end, {
+  desc = "Find abbreviations",
+})
+
+vim.keymap.set("n", "<leader>fs", function()
+  redir.pick("set")
+end, {
+  desc = "Find Settings/Options",
+})
+
+vim.keymap.set("n", "<leader>fnm", function()
+  redir.pick("messages")
+end, {
+  desc = "Find Neovim messages",
+})
+
+vim.keymap.set("n", "<leader>sm", function()
+  redir.show("map", { cmd_name = "map" })
+end, {
+  desc = "Show mappings",
+})
+
+vim.keymap.set("n", "<leader>sc", function()
+  redir.show("command", { cmd_name = "command" })
+end, {
+  desc = "Show commands",
+})
+
+vim.keymap.set("n", "<leader>sa", function()
+  redir.show("abbreviate", { cmd_name = "abbreviate" })
+end, {
+  desc = "Show abbreviations",
+})
+
+vim.keymap.set("n", "<leader>ss", function()
+  redir.show("set", { cmd_name = "set" })
+end, {
+  desc = "Show Settings/Options",
+})
+
+vim.keymap.set("n", "<leader>snm", function()
+  redir.show("messages", { cmd_name = "messages" })
+end, {
+  desc = "Show Neovim messages",
+})
