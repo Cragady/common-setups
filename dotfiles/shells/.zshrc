@@ -128,7 +128,15 @@ alias gcm="git commit -m"
 alias gaa="git add ."
 alias git-color-tree="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # alias npm-login="npm login --registry=https://npm.pkg.github.com"
+
+# TODO: consider changing the following to the commented line after it, though
+# it may be better to unset HISTFILE first? It sounds like loading the old
+# history to memory has a chance of appending all the entries to the end of the
+# current hist file. If this is what happens, it may not be worth fighting to
+# temporarily see an old history. (It still may tho). Maybe merging histories
+# isn't a bad idea? I'll have to look into what a large history file entails.
 alias old-history="cat ~/.zsh_backup_history"
+# alias old-history="fc -R -I ~/.zsh_backup_history"
 # alias old-arch="arch -x86_64 zsh"
 # alias new-arch="arch -arm64 zsh"
 # alias nvim="~/nvim.appimage" # Not needed if downloaded binary and placed in ~/bin
