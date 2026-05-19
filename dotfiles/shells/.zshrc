@@ -207,3 +207,11 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 # export DOTNET_ROOT="$HOME/.dotnet"
 # export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
 
+
+# pnpm
+export PNPM_HOME="/home/cragady/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

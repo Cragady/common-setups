@@ -397,3 +397,19 @@ sudo apt-get install adb fastboot
 ```bash
 sdo apt-get install htop
 ```
+
+## pnpm
+
+Good alt to `npm`.
+
+https://pnpm.io/installation
+
+May need a pre-req:
+
+```sh
+sudo apt-get install -y libatomic1
+```
+
+```sh
+curl -fsSL https://get.pnpm.io/install.sh | sh -
+```
