@@ -34,6 +34,7 @@ vim.lsp.config("vtsls", {
             name = "@vue/typescript-plugin",
             location = vue_plugin_path,
             languages = { "vue" },
+            configNamespace = 'typescript',
           },
         },
       },
@@ -53,7 +54,7 @@ vim.lsp.config("vtsls", {
     "jsconfig.json",
     "nuxt.config.ts",
     "nuxt.config.js",
-    -- "package.json",
-    -- ".git",
+    "package.json",
+    ".git",
   },
 })
