@@ -23,7 +23,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
 
 function R(name)
-    require("plenary.reload").reload_module(name)
+  require("plenary.reload").reload_module(name)
 end
 
 -- TODO: see if wanted
@@ -62,6 +62,7 @@ end
 -- })
 --
 
+-- TODO: audit the following, all of it may not be necessary
 autocmd('LspAttach', {
   group = CragadyGroup,
   callback = function(e)
@@ -76,6 +77,15 @@ autocmd('LspAttach', {
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+
+    -- TODO: play around with
+    -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    -- if client and client.server_capabilities.inlayHintProvider then
+    --   vim.keymap.set('n', '<leader>lh', function()
+    --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    --   end, opts, { desc = "Toggle Inlay Hints" })
+    --
+    -- end
   end
 })
 

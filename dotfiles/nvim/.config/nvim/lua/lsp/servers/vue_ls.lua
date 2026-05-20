@@ -7,9 +7,9 @@ vim.lsp.config("vue_ls", {
     "vue",
   },
 
-  init_options = {
-    vue = {
-      hybridMode = false,
-    },
-  },
+  -- init_options = {
+  --   vue = {
+  --     hybridMode = false,
+  --   },
+  -- },
 })

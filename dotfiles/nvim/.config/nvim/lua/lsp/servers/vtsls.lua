@@ -1,5 +1,6 @@
 local capabilities = require("lsp.capabilities").capabilities
 local util = require("lsp.util")
+-- local lspconfig_util = require("lspconfig.util")
 
 local vue_plugin_path = vim.fs.normalize(
   util.mason_path(
@@ -16,6 +17,14 @@ end
 
 vim.lsp.config("vtsls", {
   capabilities = capabilities,
+
+  -- root_dir = lspconfig_util.root_pattern(
+  --   "nuxt.config.ts",
+  --   "nuxt.config.js",
+  --   -- "package.json",
+  --   "tsconfig.json",
+  --   -- ".git",
+  -- ),
 
   settings = {
     vtsls = {
@@ -42,7 +51,9 @@ vim.lsp.config("vtsls", {
   root_markers = {
     "tsconfig.json",
     "jsconfig.json",
-    "package.json",
-    ".git",
+    "nuxt.config.ts",
+    "nuxt.config.js",
+    -- "package.json",
+    -- ".git",
   },
 })
