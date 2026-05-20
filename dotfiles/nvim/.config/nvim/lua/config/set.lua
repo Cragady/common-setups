@@ -42,10 +42,12 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 })
 -- end https://github.com/sitiom/nvim-numbertoggle/blob/main/plugin/numbertoggle.lua
 
--- 4 space indent for now
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.foldenable = false -- Disable flding by default at start
+
+-- 2 space indent for now
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
