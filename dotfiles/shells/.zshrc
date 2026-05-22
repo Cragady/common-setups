@@ -146,7 +146,8 @@ alias copy="xclip -sel clipboard"
 # alias copy="xsel -ib"
 alias bw="flatpak run --command=bw com.bitwarden.desktop"
 alias bw-desk="flatpak run --verbose com.bitwarden.desktop --enable-logging=file --log-file=~/tmp/bitwarden.log"
-
+alias common-setups="cd ~/common-setups"
+alias common-setups-nvim="cd ~/common-setups/dotfiles/nvim/.config/nvim"
 export NVM_DIR="/home/cragady/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
