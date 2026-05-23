@@ -1,0 +1,15 @@
+{
+  "variables": {
+    "lang_script_vue": "ts",
+    "lang_ts_vue": "ts",
+    "lang_tsx_vue": "tsx"
+  },
+  "html": {
+    "snippets": {
+      "vue": "{<script setup lang=\"${lang_script_vue}\">\n// scripts\n</script>\n\n<template>\n<!-- html/Components -->\n</template>\n\n<style scoped>\n/* styles */\n</style>}",
+      "vue:script-experimental": "script[setup. lang=\"${lang_script_vue}\"]>{}+{// scripts}",
+      "vue:tsx-experimental": "vue[lang=${lang_tsx_vue}]",
+      "vuet": "script[setup lang=\"ts\"]{\n  // scripts\n}+template{\n  <!-- html/Components -->\n}+style[scoped]{\n  /* styles */\n}"
+    }
+  }
+}

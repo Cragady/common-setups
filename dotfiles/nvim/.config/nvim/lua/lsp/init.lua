@@ -5,6 +5,7 @@ local servers = {
   "omnisharp",
   -- "gdscript",
   -- "gdshader_lsp",
+  "emmet_language_server",
   "clangd",
   "rust_analyzer",
   "eslint",

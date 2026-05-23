@@ -9,6 +9,8 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
 
     config = function()
+      -- NOTE: comment out if things go whackado with other suggestions
+      require("luasnip.loaders.from_vscode").lazy_load();
       local ls = require("luasnip")
       ls.filetype_extend("javascript", { "jsdoc" })
 
