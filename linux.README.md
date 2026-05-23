@@ -11,7 +11,7 @@ Some of the dot files in this directory should just be copied over to the user d
 Install nvm (Node Version Manager). https://github.com/nvm-sh/nvm
 
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 ```
 
 Install Zsh, ezpz.
