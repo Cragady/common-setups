@@ -211,8 +211,9 @@ Ubuntu/Debian
 
 ```sh
 # Or use `sudo apt-get install ripgrep #??`
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-sudo dpkg -i ripgrep_13.0.0_amd64.deb
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb
+sudo apt-get install ./ripgrep_14.1.1-1_amd64.deb
+# sudo dpkg -i ripgrep_14.1.1-1_amd64.deb
 ```
 
 ### tmux
