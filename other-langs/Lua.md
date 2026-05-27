@@ -2,6 +2,12 @@
 
 ## Versions
 
+A specific neovim plugin needs `luarocks`. Install this by using the following:
+
+```sh
+sudo apt-get install luarocks
+```
+
 ### 5.4
 
 `sudo apt-get install lua5.4 liblua5.4-dev`

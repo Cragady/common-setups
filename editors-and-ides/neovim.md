@@ -23,6 +23,7 @@ This should be after you install all prerequisites for neovim if needed:
 
 * libreadline-dev or readline-devel
 * lua
+* luarocks
 * deno
 * yarn
 * ripgrep
