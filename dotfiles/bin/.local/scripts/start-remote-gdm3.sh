@@ -42,6 +42,8 @@ fi
 # use script and replacement string to do this.
 
 mgmt_file="/etc/gdm3/bash-managed.txt"
+x11_mgmt_file="/etc/X11/bash-managed.txt"
+
 if [[ ! -f "$mgmt_file" ]]; then
   echo 'Backing up previous gdm/custom.conf'
   sudo cp /etc/gdm3/custom.conf /etc/gdm3/custom.conf.bak
@@ -50,6 +52,16 @@ if [[ ! -f "$mgmt_file" ]]; then
   sudo touch "$mgmt_file"
 else
   echo 'Management file detected - NOOP!'
+fi
+
+if [[ ! -f "$x11_mgmt_file" ]]; then
+  echo 'Backing up previous X11/Xwrapper.config'
+  sudo cp /etc/X11/Xwrapper.config /etc/X11/Xwrapper.config.bak
+  echo 'Setting up configs.'
+  sudo cp $HOME/common-setups/dotfiles/Z_NO_STOW/ZZZZ_FLYBYS/X11/Xwrapper.config /etc/X11/Xwrapper.config
+  sudo touch "$x11_mgmt_file"
+else
+  echo 'X11 management file detected - NOOP!'
 fi
 
 stop-remote-gdm3.sh "keep-conf"
