@@ -2,9 +2,13 @@
 
 set -e
 
-pkill -9 -u $USER rustdesk || true
-pkill -9 -u $USER xfce4-session || true
-pkill -9 -u $USER Xorg || true
+pkill -9 -u "$USER" rustdesk || true
+pkill -9 -u "$USER" xfce4-session || true
+pkill -9 -u "$USER" Xorg || true
+pkill -9 -u "$USER" startplasma-x11 || true
+pkill -9 -u "$USER" plasmashell || true
+pkill -9 -u "$USER" ksmserver || true
+pkill -9 -u "$USER" kwin_x11 || true
 
 
 echo 'GUIs stopped'
