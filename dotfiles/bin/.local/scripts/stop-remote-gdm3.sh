@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo 'bad script, returning'
+exit 1
+
 sudo systemctl stop gdm3 || true
 
 sudo pkill -9 Xorg || true

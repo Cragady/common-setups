@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'bad script, returning'
+exit 1
+
 # NOTE: Script doesn't work as-is - needs more work, wayland likes getting in the way
 echo "Script doesn't work as-is - needs more work, wayland likes getting in the way"
 
@@ -94,6 +97,6 @@ while [[ $loop_iteration -le $loop_limit ]]; do
 done
 
 # TODO: change to be better - don't hard code username
-sudo -u cragady DISPLAY=:0 XAUTHORITY=$(either_or_file) rustdesk &
-prev_cmd_successful
+# sudo -u cragady DISPLAY=:0 XAUTHORITY=$(either_or_file) rustdesk &
+# prev_cmd_successful
 echo 'Remote Display for RDP initiated.'
