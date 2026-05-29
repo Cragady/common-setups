@@ -46,8 +46,11 @@ export DISPLAY=:0
 # sleep 3
 
 export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=XFCE
+export DESKTOP_SESSION=xfce
 
-xinit startxfce4 -- :0 &
+xinit /bin/sh -c 'exec dbus-run-session startxfce4' -- :0 &
+prev_cmd_successful
 
 # dbus-launch startxfce4 &
 

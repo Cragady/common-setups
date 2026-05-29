@@ -48,8 +48,12 @@ export DISPLAY=:0
 # sleep 3
 
 export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=KDE
+export DESKTOP_SESSION=plasma
+export KDE_FULL_SESSION=true
 
-xinit startplasma-x11 -- :0 &
+xinit /bin/sh -c 'exec dbus-run-session startplasma-x11' -- :0 &
+prev_cmd_successful
 
 loop_limits=30
 loop_iter=0

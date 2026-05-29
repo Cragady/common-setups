@@ -70,6 +70,9 @@ fi
 stop-remote-gdm3.sh "keep-conf"
 sudo systemctl start gdm3
 
+# export XDG_CURRENT_DESKTOP=GNOME
+# export DESKTOP_SESSION=gnome
+
 echo "Waiting for X11 session..."
 
 loop_limit=30
