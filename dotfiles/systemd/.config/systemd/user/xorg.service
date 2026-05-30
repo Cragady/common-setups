@@ -1,11 +1,13 @@
 # ~/.config/systemd/user/xorg.service
 
 [Unit]
-Description=Xorg Display Server
+Description=Xorg Display Server :99
+PartOf=remote-plasma-gui.target
 
 [Service]
-ExecStart=/usr/lib/xorg/Xorg :0 -nolisten tcp
-Restart=no
+Type=simple
+ExecStart=/usr/lib/xorg/Xorg :99 -nolisten tcp -noreset
+KillMode=control-group
 
 [Install]
 WantedBy=default.target

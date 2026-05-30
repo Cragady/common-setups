@@ -1,0 +1,17 @@
+[Unit]
+Description=RustDesk (User Session)
+After=remote-plasma.service
+Requires=remote-plasma.service
+PartOf=remote-plasma-gui.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rustdesk
+Restart=no
+KillMode=control-group
+
+Environment=DISPLAY=:99
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=remote-plasma-gui.target

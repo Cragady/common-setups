@@ -1,5 +1,4 @@
 [Unit]
 Description=Remote Plasma GUI Session
 
-Wants=xdummy.service
-Wants=plasma-remote.service
+Wants=xdummy.service remote-plasma.service rustdesk.service

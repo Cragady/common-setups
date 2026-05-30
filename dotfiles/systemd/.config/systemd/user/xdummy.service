@@ -1,5 +1,6 @@
 [Unit]
 Description=Headless Xorg Display :99
+PartOf=remote-plasma-gui.target
 
 [Service]
 Type=simple

@@ -4,6 +4,7 @@
 Description=Remote KDE Plasma Session
 Requires=xdummy.service
 After=xdummy.service
+PartOf=remote-plasma-gui.target
 
 [Service]
 Type=simple
@@ -18,6 +19,7 @@ Environment=XDG_RUNTIME_DIR=/run/user/%U
 ExecStart=/usr/bin/startplasma-x11
 
 Restart=no
+KillMode=control-group
 
 [Install]
 WantedBy=remote-plasma-gui.target
