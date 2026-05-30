@@ -1,0 +1,16 @@
+[Unit]
+Description=Headless Xorg Display :99
+
+[Service]
+Type=simple
+
+ExecStart=/usr/lib/xorg/Xorg \
+    :99 \
+    -configdir /etc/X11/xorg.conf.d \
+    -nolisten tcp \
+    -noreset
+
+Restart=on-failure
+
+[Install]
+WantedBy=remote-plasma-gui.target

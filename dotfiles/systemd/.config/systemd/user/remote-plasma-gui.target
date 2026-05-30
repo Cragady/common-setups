@@ -1,0 +1,5 @@
+[Unit]
+Description=Remote Plasma GUI Session
+
+Wants=xdummy.service
+Wants=plasma-remote.service
