@@ -1,0 +1,22 @@
+# ~/.config/systemd/user/remote-plasma.service
+
+[Unit]
+Description=Remote KDE Plasma Session
+Requires=xorg.service
+After=xorg.service
+
+[Service]
+Type=simple
+
+Environment=DISPLAY=:0
+Environment=XDG_SESSION_TYPE=x11
+Environment=XDG_CURRENT_DESKTOP=KDE
+Environment=DESKTOP_SESSION=plasma
+Environment=KDE_FULL_SESSION=true
+
+ExecStart=/usr/bin/dbus-run-session /usr/bin/startplasma-x11
+
+Restart=no
+
+[Install]
+WantedBy=default.target

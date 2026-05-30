@@ -1,0 +1,11 @@
+# ~/.config/systemd/user/xorg.service
+
+[Unit]
+Description=Xorg Display Server
+
+[Service]
+ExecStart=/usr/lib/xorg/Xorg :0 -nolisten tcp
+Restart=no
+
+[Install]
+WantedBy=default.target

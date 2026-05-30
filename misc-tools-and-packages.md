@@ -413,3 +413,74 @@ sudo apt-get install -y libatomic1
 ```sh
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
+
+## ack
+
+```sh
+sudo apt install -y ack-grep
+# alias ack-grep to agrep
+```
+
+## silversearcher-ag
+
+```sh
+sudo apt install -y silversearcher-ag
+# ag 'pattern'
+# alias ag to aggrep
+```
+
+## ripgrep
+
+### Quick Note
+
+This is likely the main grep prog that you want. ripgrep has better performance than the others. This automatically respects the following:
+
+* `.gitignore`
+* `.ignore`
+* `.rgignore`
+
+You can ignore the ignore files as well with the `u` and `--no-ignore` flags, or other flags:
+
+```sh
+rg -uuu 'pattern'
+# rg -uuu ==~ grep -Pr -a
+# rg -uu --binary --max-depth 1 ==~ grep -P
+# grep -P is better than egrep (grep -E)
+# OR
+rg --no-ignore 'pattern'
+```
+
+`-u` has different levels of ignoring:
+
+* `-u` - like `--no-ignore`
+* `-uu` - like the previous but with the `-./--hidden` flag.
+* `-uuu` - like the previous but with the `--binary` flag.
+
+`--no-ignore` implies the following flags:
+
+* `--no-ignore`
+* `--no-ignore-dot` - (this ignores ignore rules, it doesn't search hidden files)
+* `--no-ignore-exclude`
+* `--no-ignore-global`
+* `--no-ignore-parent`
+* `--no-ignore-vcs`
+
+Misc flags:
+
+* `-P, --pcre2` - Adds items back that grep's `-P` supports. `rg` had disabled some items by default like lookarounds, backreferences, etc.
+* `-./--hidden` - searches hidden files
+* `--binary` - searches binary files
+
+### Installation / Misc
+
+```sh
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb
+sudo apt-get install ./ripgrep_14.1.1-1_amd64.deb
+# sudo dpkg -i ripgrep_14.1.1-1_amd64.deb # can still add to apt with 'apt install' if dpkg was used accidentally
+# NOTE: OR
+sudo apt install ripgrep
+
+# rg 'pattern'
+# alias rg to rrgrep
+```
+
