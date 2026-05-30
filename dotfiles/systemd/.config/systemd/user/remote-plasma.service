@@ -14,7 +14,7 @@ Environment=XDG_CURRENT_DESKTOP=KDE
 Environment=DESKTOP_SESSION=plasma
 Environment=KDE_FULL_SESSION=true
 
-ExecStart=/usr/bin/dbus-run-session /usr/bin/startplasma-x11
+ExecStart=/usr/bin/startplasma-x11
 
 Restart=no
 

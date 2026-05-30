@@ -39,4 +39,3 @@ echo -e "\n\n"
 
 systemctl --user start xorg.service
 systemctl --user start remote-plasma.service
-systemctl --user start rustdesk.service
