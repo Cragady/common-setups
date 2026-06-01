@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-STOW_FOLDERS="bin,nvim,conky,editorconfig,shells,tmux,vim"
+. $HOME/common-setups/dotfiles/stow-config.sh
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
