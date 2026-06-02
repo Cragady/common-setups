@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# NOTE: may need to implement a refresh of sorts of what binaries/executables
+# are on the path. This is useful in the case of removed items no longer being
+# owned by stow, and not available on path anymore.
+
 . $HOME/common-setups/dotfiles/stow-config.sh
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
