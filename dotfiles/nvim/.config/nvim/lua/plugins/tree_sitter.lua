@@ -28,6 +28,7 @@ return {
       nvim_tree.install({
         "vimdoc", "javascript", "typescript", "cpp", "c", "c_sharp", "lua",
         "rust", "jsdoc", "bash", "go", "python", "vim", "query", "vue", "css",
+        "tsx", "jsx"
       });
 
 
@@ -53,11 +54,22 @@ return {
         local buf = args.buf
         local ft = vim.bo[buf].filetype
 
+        -- Map filetypes to correct Treesitter language parsers
+        local parser_map = {
+          vue = "vue",
+          typescript = "typescript",
+          typescriptreact = "tsx",
+          tsx = "tsx",
+        }
+
+
+        local ft_or_ts_lang = parser_map[ft] or ft
+
         -- Enable highlighting if parser exists
-        pcall(vim.treesitter.start, buf, ft)
+        pcall(vim.treesitter.start, buf, ft_or_ts_lang)
 
         -- Enable treesitter indentation if parser exists
-        local ok = pcall(vim.treesitter.language.add, ft)
+        local ok = pcall(vim.treesitter.language.add, ft_or_ts_lang)
 
         if ok then
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
