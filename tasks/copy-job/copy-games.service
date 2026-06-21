@@ -1,0 +1,23 @@
+[Unit]
+Description=Games Ext4 to Btrfs Migration
+RequiresMountsFor=/mnt/8tbsrc /mnt/20tbdest
+After=local-fs.target
+
+[Service]
+Type=simple
+
+# Run as root because preserving ownership,
+# ACLs and xattrs usually requires it.
+User=root
+Group=root
+
+ExecStart=/home/cragady/common-setups/tasks/copy-job/copy-games.sh
+
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
