@@ -1,4 +1,5 @@
-# Immediately after:
+# NOTE:
+# Immediately BEFORE:
 #   # don't delete these required lines
 #   *filter
 # insert:
@@ -11,16 +12,18 @@
 #
 # Incoming overlay traffic
 #
--A PREROUTING \
-  -d 10.10.0.2 \
-  -j DNAT --to-destination 192.168.1.2
-
+-A PREROUTING -d 10.10.0.2 -j DNAT --to-destination 192.168.1.2
 #
 # Replies back through overlay
 #
--A POSTROUTING \
-  -d 192.168.1.2 \
-  -j SNAT --to-source 10.10.0.2
+-A POSTROUTING -d 192.168.1.2 -j SNAT --to-source 10.10.0.2
+COMMIT
+
+# NOTE:
+# Existing *filter section
+# *nat and its COMMIT comes before *filter
+*filter # ...
+# ...
 
 -A ufw-before-forward -i dummy0 -j ACCEPT
 -A ufw-before-forward -o dummy0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
