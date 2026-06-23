@@ -1,0 +1,8 @@
+[Match]
+Name=dummy0
+
+[Network]
+Address=10.10.0.1/32
+
+# Entire Subnet
+# Address=10.1.0.1/24

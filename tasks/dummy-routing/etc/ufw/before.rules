@@ -1,0 +1,30 @@
+# Immediately after:
+#   # don't delete these required lines
+#   *filter
+# insert:
+*nat
+:PREROUTING ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+
+# NOTE: for entire subnet, change the following respective IPs to 10.10.0.0/24 and 192.168.1.0/24 respectively
+
+#
+# Incoming overlay traffic
+#
+-A PREROUTING \
+  -d 10.10.0.2 \
+  -j DNAT --to-destination 192.168.1.2
+
+#
+# Replies back through overlay
+#
+-A POSTROUTING \
+  -d 192.168.1.2 \
+  -j SNAT --to-source 10.10.0.2
+
+-A ufw-before-forward -i dummy0 -j ACCEPT
+-A ufw-before-forward -o dummy0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+COMMIT
+
+
