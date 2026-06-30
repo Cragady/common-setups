@@ -27,3 +27,9 @@ dotnet workload install wasm-tools
 # To check other workload installs
 dotnet workload list
 ```
+
+### Avalonia
+
+```sh
+dotnet new install Avalonia.Templates
+```

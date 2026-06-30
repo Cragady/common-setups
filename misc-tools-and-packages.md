@@ -484,3 +484,55 @@ sudo apt install ripgrep
 # alias rg to rrgrep
 ```
 
+## smartmontools
+
+```sh
+sudo apt install smartmontools
+
+# Gives `smartctl` & `smartd daemon`
+```
+
+## warp-cli (Cloudflare WARP Zero Trust)
+
+Can now also just download a deb package and install that way w/apt.
+
+```sh
+sudo apt install ./<cloudflare apt package name>.deb
+```
+
+### Repo Instructions
+
+```sh
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+# NOTE: can target a prev version if your lsb_release version is too high (as was the case in another instance on another machine)
+# echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ noble main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+
+# Install
+sudo apt-get update && sudo apt-get install cloudflare-warp
+```
+
+## flatpak
+
+```sh
+sudo apt install flatpak
+
+# NOTE: IF gui is wanted:
+sudo apt install gnome-software-plugin-flatpak
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+```
+
+## NTFS
+
+```sh
+sudo apt-get install ntfs-3g
+```
+
