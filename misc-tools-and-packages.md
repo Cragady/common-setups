@@ -536,3 +536,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo apt-get install ntfs-3g
 ```
 
+## fpart
+
+```sh
+sudo apt install fpart
+```
