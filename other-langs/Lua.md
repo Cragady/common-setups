@@ -5,7 +5,16 @@
 A specific neovim plugin needs `luarocks`. Install this by using the following:
 
 ```sh
-sudo apt-get install luarocks
+sudo apt-get luarocks
+
+# May want luajit? Or not?
+sudo apt install luajit
+```
+
+### 5.1 (Neovim Default)
+
+```sh
+sudo apt install lua5.1 liblua5.1-0-dev
 ```
 
 ### 5.4
