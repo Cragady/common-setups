@@ -185,6 +185,22 @@ end, {
   desc = "Show Neovim messages",
 })
 
+-- 'foldmethod' options:
+--   manual - make fold by using motions w/ zf
+--   expr   - expr decides fold levels (treesitter-powered)
+--   marker - looks for special comment markers ({{{ }}}) dropped in the file, old school (I think?) but works
+--   indent - folds by how far stuff is indented, simple but kinda dumb on messy files so may want to exercise caution or embrace chaos
+--   syntax - uses the old :syntax highlighting rules to guess folds, mostly a fallback
+--   diff   - only really shows up in diff mode, hides the unchanged lines so you see what moved
+-- Right now this just flips between "expr" (treesitter doing its thing) and "manual" - can't
+-- really have both playing nice in the same foldmethod at once
+-- TODO: maybe cycle through more of these someday, or remember a per-filetype fold mode, or
+-- even defining another keymap to pull up an options list or something similar ig. Seems
+-- like the current setup is more than enough, but might be fun to implement later just to
+-- dink around with
+-- NOTE: if you ever actually want treesitter folds AND custom folds hanging out together at the same
+-- time (no toggling), `nvim-ufo` would probably be the way to go - nvim-ufo does divert away from
+-- neovim's core foldmethod so the two can play nicely (neovim segments this by design)
 vim.keymap.set("n", "<leader>zf", function()
   if vim.wo.foldmethod == "expr" then
     vim.wo.foldmethod = "manual"
