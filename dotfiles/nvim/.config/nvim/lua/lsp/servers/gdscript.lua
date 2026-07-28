@@ -1,22 +1,9 @@
 local capabilities = require("lsp.capabilities").capabilities
 
-local port = os.getenv("GDScript_Port") or "6005"
-
+-- NOTE: older version of this config also matched filetypes "gd" and
+-- "gdscript3" - dropped since Neovim already maps *.gd to filetype
+-- "gdscript" on its own, but "gdscript3" is worth restoring here if a
+-- Godot 3 project ever needs it (filetypes = { "gdscript", "gdscript3" })
 vim.lsp.config("gdscript", {
   capabilities = capabilities,
-
-  name = "godot",
-
-  cmd = vim.lsp.rpc.connect("127.0.0.1", tonumber(port)),
-
-  filetypes = {
-    "gd",
-    "gdscript",
-    "gdscript3",
-  },
-
-  root_dir = vim.fs.root(0, {
-    "project.godot",
-    ".git",
-  }),
 })
