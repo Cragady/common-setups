@@ -43,6 +43,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 -- end https://github.com/sitiom/nvim-numbertoggle/blob/main/plugin/numbertoggle.lua
 
 vim.opt.foldenable = false -- Disable flding by default at start
+vim.opt.foldlevelstart = 99 -- Start with folds open instead of collapsed - At least to the 99th level lolz
 
 -- 2 space indent for now
 vim.opt.tabstop = 2

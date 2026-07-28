@@ -184,3 +184,14 @@ vim.keymap.set("n", "<leader>snm", function()
 end, {
   desc = "Show Neovim messages",
 })
+
+vim.keymap.set("n", "<leader>zf", function()
+  if vim.wo.foldmethod == "expr" then
+    vim.wo.foldmethod = "manual"
+    vim.notify("Fold mode: manual")
+  else
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.notify("Fold mode: treesitter")
+  end
+end)
