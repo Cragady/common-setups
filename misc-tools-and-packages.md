@@ -648,10 +648,20 @@ to the LAN subnet rather than the world (adjust the subnet to match yours):
 ```sh
 sudo ufw allow from 192.168.0.0/24 to any port 41337 proto tcp comment 'loreserver gRPC'
 sudo ufw allow from 192.168.0.0/24 to any port 41339 proto tcp comment 'loreserver HTTP'
+sudo ufw allow from 192.168.0.0/24 to any port 41337 proto udp comment 'loreserver QUIC'
 
 sudo ufw reload
 sudo ufw status verbose
 ```
+
+**Also open 41337 over UDP.** `lore` multiplexes two protocols on the same port
+number: gRPC/TCP for control-plane calls (`EnvironmentGet`, repo lookups, etc.) and
+**QUIC/UDP for the actual storage session** used by `lore push`/`sync`/`clone`. TCP-only
+on 41337 lets control-plane calls through but the push/sync data transfer will hang
+and fail with a QUIC handshake timeout (confirmed via `lore --debug push`) - both
+protocols need to be allowed on that same port:
+
+Included Above, just giving explanation below.
 
 If `ufw` isn't enabled yet on that host, check first (`sudo ufw status`) and make
 sure SSH is allowed before enabling it, or you'll lock yourself out:
