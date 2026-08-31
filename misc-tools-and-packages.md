@@ -639,3 +639,24 @@ journalctl --user -u loreserver -f
 If it only shows up on `127.0.0.1` and needs to be reachable from other machines on
 the LAN, a `--config <DIR>` TOML override (see `loreserver --help`) is needed to
 change the bind address - not yet worked out which key controls this.
+
+### Firewall (ufw)
+
+Once `loreserver` is bound to the LAN interface, open its two default ports, scoped
+to the LAN subnet rather than the world (adjust the subnet to match yours):
+
+```sh
+sudo ufw allow from 192.168.0.0/24 to any port 41337 proto tcp comment 'loreserver gRPC'
+sudo ufw allow from 192.168.0.0/24 to any port 41339 proto tcp comment 'loreserver HTTP'
+
+sudo ufw reload
+sudo ufw status verbose
+```
+
+If `ufw` isn't enabled yet on that host, check first (`sudo ufw status`) and make
+sure SSH is allowed before enabling it, or you'll lock yourself out:
+
+```sh
+sudo ufw allow 22/tcp   # or whatever port sshd actually listens on there
+sudo ufw enable
+```
