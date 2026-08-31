@@ -549,3 +549,93 @@ sudo apt-get install ntfs-3g
 ```sh
 sudo apt install fpart
 ```
+
+## Lore (VCS)
+
+Epic Games' VCS, MIT licensed, pre-1.0. No package manager support yet - ships as
+plain release binaries (`lore` CLI, `loreserver`). Unlike git, `loreserver` must be
+running even for fully local single-user use - there is no server-less mode.
+
+https://github.com/EpicGames/lore
+
+### Install / Update
+
+Grab the latest release tag and the matching Linux x86_64 assets:
+
+```sh
+curl -s https://api.github.com/repos/EpicGames/lore/releases/latest | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+print(data['tag_name'])
+for a in data['assets']:
+    if 'x86_64-unknown-linux-gnu' in a['name'] and 'debug' not in a['name'] and 'liblore' not in a['name']:
+        print(a['name'], a['digest'], a['browser_download_url'])
+"
+```
+
+```sh
+TMPDIR=$(mktemp -d)
+cd "$TMPDIR"
+curl -sL -o lore.tar.gz       <lore-*-x86_64-unknown-linux-gnu.tar.gz download URL>
+curl -sL -o loreserver.tar.gz <loreserver-*-x86_64-unknown-linux-gnu.tar.gz download URL>
+sha256sum lore.tar.gz loreserver.tar.gz   # compare against the `digest` field above
+
+tar xzf lore.tar.gz
+tar xzf loreserver.tar.gz
+chmod +x ./lore ./loreserver
+
+# back up whatever's currently installed first if upgrading in place
+mv ./lore ~/.local/bin/lore
+mv ./loreserver ~/.local/bin/loreserver
+cd - && rm -rf "$TMPDIR"
+```
+
+```sh
+lore --version
+loreserver --version
+```
+
+### Auto-starting `loreserver` as a systemd user service
+
+For a server host that should keep `loreserver` running across reboots without a
+logged-in session:
+
+```sh
+mkdir -p ~/.config/systemd/user
+cat > ~/.config/systemd/user/loreserver.service <<'EOF'
+[Unit]
+Description=Lore VCS server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=%h/.local/bin/loreserver
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+EOF
+
+systemctl --user daemon-reload
+systemctl --user enable --now loreserver.service
+systemctl --user status loreserver.service
+```
+
+Lingering is required so the service starts at boot even with nobody logged in
+(without it, user services only run while that user has an active session):
+
+```sh
+sudo loginctl enable-linger $USER
+```
+
+Verify it's listening and check logs:
+
+```sh
+ss -tlnp | grep -E '41337|41339'   # default gRPC / HTTP ports
+journalctl --user -u loreserver -f
+```
+
+If it only shows up on `127.0.0.1` and needs to be reachable from other machines on
+the LAN, a `--config <DIR>` TOML override (see `loreserver --help`) is needed to
+change the bind address - not yet worked out which key controls this.
