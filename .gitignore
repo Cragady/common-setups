@@ -1,3 +1,5 @@
+# Some Ignores
+
 */**/plugin/packer_compiled.lua
 *.lnotes.*
 dotfiles/bin/.local/share
