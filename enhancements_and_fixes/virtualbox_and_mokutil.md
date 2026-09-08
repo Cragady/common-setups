@@ -129,3 +129,10 @@ See "systemctl status virtualbox.service" and "journalctl -xeu virtualbox.servic
 .
 
 ```
+
+## See also
+
+`virtualbox_hostonly_network_range.md` -- a *different* VirtualBox failure that
+shows up in the same GUI. If the modules load fine (`/dev/vboxdrv` and
+`/dev/vboxnetctl` both present) but changing a host-only adapter's IP fails with
+`E_ACCESSDENIED`, that's the address whitelist, not module signing.
