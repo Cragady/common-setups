@@ -8,6 +8,34 @@ This, or the last steps of this, may have to be done on every kernel update.
 
 Attempting to start a Virtual Machine in `Virtual Box` give the following error: `Kernel driver not installed (rc=-1908)`
 
+## Diagnosis
+
+Pins the cause in two commands, instead of reinstalling things and hoping.
+Compare **who signed the module** against **what is actually enrolled** in
+firmware:
+
+```sh
+modinfo $(modinfo -n vboxdrv) | grep -E '^(signer|sig_key)'
+# signer: pinklin-desk Secure Boot Module Signature key
+
+mokutil --list-enrolled | grep -i 'CN='
+# CN=PinkLinSat Secure Boot Module Signature key   <-- stale, DIFFERENT key
+```
+
+A different CN means the signature is untrusted, so the kernel refuses the
+module no matter how many times you reinstall `virtualbox-dkms`. The key DKMS
+signs with is `/var/lib/shim-signed/mok/MOK.der` -- that is the one to import
+below.
+
+Supporting checks:
+
+```sh
+mokutil --sb-state                 # none of this matters if SecureBoot is disabled
+dkms status                        # did it even build for the running kernel?
+ls -l /dev/vboxdrv /dev/vboxnetctl # both absent == module never loaded
+journalctl -b | grep -i vbox       # "modprobe vboxdrv failed"
+```
+
 ## Solution (ACTUAL SOLUTION)
 
 ### Find Original Signing Key
