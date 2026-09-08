@@ -78,6 +78,10 @@ Create the file with the range you want, keeping the default so existing
 ```sh
 sudo install -d /etc/vbox
 printf '* 192.168.56.0/21 192.168.2.0/24\n' | sudo tee /etc/vbox/networks.conf
+
+## In my specific case, the file already existed
+
+sudo install -Dm644 /tmp/vbox-networks.conf /etc/vbox/networks.conf
 ```
 
 Takes effect immediately -- `VBoxNetAdpCtl` re-reads the file on every
