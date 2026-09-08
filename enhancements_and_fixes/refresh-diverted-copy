@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Refresh a hand-placed, arch-specific copy of a file from a diverted package.
+# Usage: refresh-diverted-copy <package> <arch> <path-in-deb> <dest> [mode]
+# e.g.   refresh-diverted-copy libpcap0.8-dev amd64 /usr/bin/pcap-config /usr/bin/pcap-config-amd64 755
+set -euo pipefail
+
+pkg=$1 arch=$2 src=$3 dest=$4 mode=${5:-644}
+tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
+
+( cd "$tmp" && apt-get download "${pkg}:${arch}" >/dev/null 2>&1 ) \
+  || { echo "download failed: ${pkg}:${arch}" >&2; exit 1; }
+
+deb=$(find "$tmp" -maxdepth 1 -name '*.deb' -print -quit)
+[ -n "$deb" ] || { echo "no .deb fetched" >&2; exit 1; }
+
+dpkg-deb --fsys-tarfile "$deb" | tar -xO ".${src}" > "$tmp/extracted"
+[ -s "$tmp/extracted" ] || { echo "extract produced an empty file; refusing" >&2; exit 1; }
+
+if [ -e "$dest" ] && cmp -s "$tmp/extracted" "$dest"; then
+  echo "already current: $dest"; exit 0
+fi
+sudo install -o root -g root -m "$mode" "$tmp/extracted" "$dest"
+echo "refreshed: $dest  ($(stat -c%s "$dest") bytes)"

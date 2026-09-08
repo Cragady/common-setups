@@ -121,11 +121,16 @@ Interacts w/qemu
 
 ### Wine
 
-Windows Emulation
+Windows compatibility layer (not an emulator).
 
-This one it may be better to follow the install instructions on the wine website.
+The distro package is fine for casual use:
 
 `sudo apt-get install wine`
+
+For a source build with a 32-bit Unix side (needed for 32-bit Windows apps),
+see [wine-from-source.md](wine-from-source.md). That path pulls in ~400 `:i386`
+`-dev` packages and hits two Multi-Arch packaging bugs -- see
+[enhancements_and_fixes/multiarch_dev_file_conflicts.md](enhancements_and_fixes/multiarch_dev_file_conflicts.md).
     
 ### Virtual Box (Oracle (ew, but Virtual Box is fun))
 
